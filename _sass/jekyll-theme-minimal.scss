@@ -101,16 +101,25 @@ th {
 }
 
 img {
-  max-width:100%;
+  max-width: 80%;
+  margin-left: 5%;
 }
 
 header {
-  width:270px;
+  width:300px;
   float:left;
   position:fixed;
   -webkit-font-smoothing:subpixel-antialiased;
 }
 
+.myname:hover {
+  text-decoration: underline;
+  color: #222222;
+}
+
+.myname {
+  color: #222222;
+}
 ul.downloads {
   list-style:none;
   height:40px;
@@ -172,9 +181,10 @@ strong {
 }
 
 section {
-  width:500px;
+  width:550px;
   float:right;
   padding-bottom:50px;
+  margin-top: 50px;
 }
 
 small {

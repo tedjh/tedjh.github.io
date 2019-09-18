@@ -2,7 +2,38 @@
 layout: default
 ---
 
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+## About Me
+
+I started my PhD at the University of Manchester in September 2019. I am part of the Department of Mathematics, and my studies focus on representation theory, quantum algebra and rational Cherednik algebras. 
+
+## Contact
+
+Department of Mathematics, Alan Turing Building, Office: 1.214
+
+Email: [edward.jones-healey@postgrad.manchester.ac.uk](mailto:edward.jones-healey@postgrad.manchester.ac.uk)
+
+## Writings
+
+The following are notes I have made during my studies. Some are based on lecture notes from courses I have taken, but the notes here are heavily edited and in my own words, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.
+
+* Rational Cherednik algebras (MSc Dissertation) [pdf](./assets/files/rational_cherednik_algebras.pdf)
+
+    I introduce Majid's cocycles on Hopf algebras, looking at how they can be used to "twist" certain algebras. After a brief introduction to the theory of reflection groups, I then define the rational Cherednik algebras. We finish with a discussion of a recent result that applies the twisting procedure to certain rational Cherednik algebras.
+
+* Quantum algebra (MSc Project) [pdf](./assets/files/msc_draft.pdf)
+
+    This was a short project with a focus on introducing the basic theory of Hopf algebras. We also prove that the Drinfeld double of S_3 is not isomorphic to a group algebra.  
+
+* Lie Algebras [pdf](./assets/files/lie_algebras.pdf)
+
+    Based on the lecture course given by Professor Alexander Premet at Manchester in 2019.
+
+* Analysis, Random Walks and Groups [pdf](./assets/files/random_walk_other.pdf)
+
+    Based on the lecture course given by Dr Tuomas Sahlsten at Manchester in 2019. Original notes can be found here: [link](https://personalpages.manchester.ac.uk/staff/tuomas.sahlsten/courses/arg_2019/default.htm).
+
+
+<!---Text can be **bold**, _italic_, or ~~strikethrough~~.
 
 [Link to another page](./another-page.html).
 
@@ -121,3 +152,5 @@ Long, single-line code blocks should not wrap. They should horizontally scroll i
 ```
 The final element.
 ```
+
+-->
