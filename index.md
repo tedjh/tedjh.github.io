@@ -4,7 +4,7 @@ layout: default
 
 ## About Me
 
-I started my PhD at the University of Manchester in September 2019. I am part of the Department of Mathematics, and my studies focus on representation theory, quantum algebra and rational Cherednik algebras. 
+I am a PhD student in the [Department of Mathematics](https://www.maths.manchester.ac.uk/) at the University of Manchester. My studies focus on representation theory, quantum algebra and rational Cherednik algebras. My supervisor is Dr Yuri Bazlov.
 
 ## Contact
 
@@ -14,7 +14,7 @@ Email: [edward.jones-healey@postgrad.manchester.ac.uk](mailto:edward.jones-heale
 
 ## Writings
 
-The following are notes I have made during my studies. Some are based on lecture notes from courses I have taken, but the notes here are heavily edited and in my own words, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.
+The following are notes I have made during my studies. Some are based on lecture notes from courses I have taken, but the notes here are heavily edited, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.
 
 * Rational Cherednik algebras (MSc Dissertation) [pdf](./assets/files/rational_cherednik_algebras.pdf)
 
@@ -31,6 +31,10 @@ The following are notes I have made during my studies. Some are based on lecture
 * Analysis, Random Walks and Groups [pdf](./assets/files/random_walk_other.pdf)
 
     Based on the lecture course given by Dr Tuomas Sahlsten at Manchester in 2019. Original notes can be found here: [link](https://personalpages.manchester.ac.uk/staff/tuomas.sahlsten/courses/arg_2019/default.htm).
+
+## Talks
+
+* "What are Vertex Algebras", University of Bath Algebra and Geometry Seminar, October 2015.
 
 
 <!---Text can be **bold**, _italic_, or ~~strikethrough~~.
