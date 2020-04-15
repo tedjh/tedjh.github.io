@@ -2,37 +2,56 @@
 layout: default
 ---
 
-## About Me
+## About
 
-I am a PhD student in the [Department of Mathematics](https://www.maths.manchester.ac.uk/) at the University of Manchester. My studies focus on representation theory, quantum algebra and rational Cherednik algebras. My supervisor is Dr Yuri Bazlov.
+I am a PhD student in the [Department of Mathematics](https://www.maths.manchester.ac.uk/) at the [University of Manchester](https://www.manchester.ac.uk/). My research focus is on representation theory, quantum algebra and rational Cherednik algebras. My supervisor is [Dr Yuri Bazlov](https://bazlov.uk/home/index.html).
+
+Before Manchester, I briefly worked as a full-stack web developer. Prior to this I completed a Masters degree with a focus on Theoretical physics at the [University of Cambridge](https://www.cam.ac.uk/).
+
+## Education
+
+MSc Pure Mathematics, University of Manchester, 2019\\
+MASt Applied Mathematics and Theoretical Physics, University of Cambridge, 2017\\
+BSc Mathematics, University of Bath, 2016
 
 ## Contact
 
-Department of Mathematics, Alan Turing Building, Office: 1.214
+Office: 1.214\\
+Alan Turing Building\\
+Oxford Road\\
+Manchester\\
+M13 9PL
 
-Email: [edward.jones-healey@postgrad.manchester.ac.uk](mailto:edward.jones-healey@postgrad.manchester.ac.uk)
+[edward.jones-healey@postgrad.manchester.ac.uk](mailto:edward.jones-healey@postgrad.manchester.ac.uk)
 
-## Writings
+## Exposition
 
-The following are notes I have made during my studies. Some are based on lecture notes from courses I have taken, but the notes here are heavily edited, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.
+Some material I have produced during my studies so far. <!--Some are based on lecture notes from courses I have taken, but the notes here are heavily edited, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.-->
 
-* Rational Cherednik algebras (MSc Dissertation) [pdf](./assets/files/rational_cherednik_algebras.pdf)
+* **Rational Cherednik algebras**, MSc Dissertation, University of Manchester, 2019. [pdf](./assets/files/rational_cherednik_algebras.pdf)
 
-    I introduce Majid's cocycles on Hopf algebras, looking at how they can be used to "twist" certain algebras. After a brief introduction to the theory of reflection groups, I then define the rational Cherednik algebras. We finish with a discussion of a recent result that applies the twisting procedure to certain rational Cherednik algebras.
+    This is split into three parts, with the first being an introduction to cocycles on Hopf algebras and the Drinfeld twist. The second part covers the basic theory of reflection groups (real and complex) and a small amount of invariant theory. The last part collates the previous two with an introduction to rational Cherednik algebras and their generalisations, called braided Cherednik algebras, and finally a very recent result that shows the two are related by twisting.
 
-* Quantum algebra (MSc Project) [pdf](./assets/files/msc_draft.pdf)
+* **Quantum algebra**, MSc Project, University of Manchester,2019. [pdf](./assets/files/msc_draft.pdf)
 
-    This was a short project with a focus on introducing the basic theory of Hopf algebras. We also prove that the Drinfeld double of S_3 is not isomorphic to a group algebra.  
+    This was a short project with a focus on introducing the basic theory of Hopf algebras. We also prove that the Drinfeld double of S_3 is not isomorphic to a group algebra.
 
-* Lie Algebras [pdf](./assets/files/lie_algebras.pdf)
+* **Kochen-Specker Theorem**, Part III Essay, University of Cambridge, 2017. [pdf](./assets/files/kochen_specker.pdf)
+
+    A short essay on the Kochen-Specker theorem in Quantum foundations.
+
+<!--* Lie Algebras [pdf](./assets/files/lie_algebras.pdf)
 
     Based on the lecture course given by Professor Alexander Premet at Manchester in 2019.
 
 * Analysis, Random Walks and Groups [pdf](./assets/files/random_walk_other.pdf)
 
     Based on the lecture course given by Dr Tuomas Sahlsten at Manchester in 2019. Original notes can be found here: [link](https://personalpages.manchester.ac.uk/staff/tuomas.sahlsten/courses/arg_2019/default.htm).
+-->
 
 ## Talks
+
+* POSTPONED "Rational Cherednik algebras and twisting", British Early Career Mathematicians' Colloquium, University of Birmingham, April 2020.
 
 * "What are Vertex Algebras", University of Bath Algebra and Geometry Seminar, October 2015.
 
