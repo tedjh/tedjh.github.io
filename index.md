@@ -28,13 +28,15 @@ M13 9PL
 
 Some material I have produced during my studies so far. <!--Some are based on lecture notes from courses I have taken, but the notes here are heavily edited, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.-->
 
+* **Hopf Algebras and Monoidal Categories** [link](./talk_bin/index.html)
+
 * **Rational Cherednik algebras**, MSc Dissertation, University of Manchester, 2019. [pdf](./assets/files/rational_cherednik_algebras.pdf)
 
     This is split into three parts, with the first being an introduction to cocycles on Hopf algebras and the Drinfeld twist. The second part covers the basic theory of reflection groups (real and complex) and a small amount of invariant theory. The last part collates the previous two with an introduction to rational Cherednik algebras and their generalisations, called braided Cherednik algebras, and finally a very recent result that shows the two are related by twisting.
 
 * **Quantum algebra**, MSc Project, University of Manchester,2019. [pdf](./assets/files/msc_draft.pdf)
 
-    This was a short project with a focus on introducing the basic theory of Hopf algebras. We also prove that the Drinfeld double of S_3 is not isomorphic to a group algebra.
+    A short project introducing the basic theory of Hopf algebras. We also prove that the Drinfeld (or quantum) double of S_3 is not isomorphic to a group algebra.
 
 * **Kochen-Specker Theorem**, Part III Essay, University of Cambridge, 2017. [pdf](./assets/files/kochen_specker.pdf)
 
