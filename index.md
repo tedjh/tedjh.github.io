@@ -28,13 +28,13 @@ M13 9PL
 
 Some material I have produced during my studies so far. <!--Some are based on lecture notes from courses I have taken, but the notes here are heavily edited, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.-->
 
-* **Hopf Algebras and Monoidal Categories** [link](./talk_bin/index.html)
+* **Hopf Algebras and Monoidal Categories**, April 2020. [link](./talk_bin/index.html)
 
-    An extended writeup based on an expository talk introducing Hopf algebras and their relationship with braided monoidal categories.
+    An introduction to Hopf algebras, motivating them by the fact their module categories are examples of (rigid) monoidal categories. We also relate quasitriangular Hopf algebras with braided monoidal categories. <!--These notes are based on several talks I gave in April 2020 to a reading group.-->
 
 * **Rational Cherednik algebras**, MSc Dissertation, University of Manchester, 2019. [pdf](./assets/files/rational_cherednik_algebras.pdf)
 
-    This is split into three parts, with the first being an introduction to cocycles on Hopf algebras and the Drinfeld twist. The second part covers the basic theory of reflection groups (real and complex) and a small amount of invariant theory. The last part collates the previous two with an introduction to rational Cherednik algebras and their generalisations, called braided Cherednik algebras, and finally a very recent result that shows the two are related by twisting.
+    This is split into three parts, with the first being an introduction to cocycles on Hopf algebras and the Drinfeld twist. The second part covers the basic theory of reflection groups (real and complex) and a small amount of invariant theory. The last part collates the previous two with an introduction to rational Cherednik algebras and their generalisations, called braided Cherednik algebras. We finish with a very recent result that shows certain braided Cherednik algebras are Drinfeld twists of rational Cherednik algebras.
 
 * **Quantum algebra**, MSc Project, University of Manchester,2019. [pdf](./assets/files/msc_draft.pdf)
 

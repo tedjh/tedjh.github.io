@@ -101,7 +101,7 @@
 
 %\maketitle
 
-\begin{abstract}Notes based on a talk on the relationship between Hopf algebra's, category theory and Knot theory.\end{abstract}
+\begin{abstract}Notes based on a talk on the relationship between Hopf algebra's, category theory and Knot theory. Majid \cite{alma9916633704401631} was the main source for this material, although \cite{etingof2016tensor} and \cite{alma9956076580001631} were also useful.\end{abstract}
 
 \tableofcontents
 
@@ -299,25 +299,29 @@ It remains to check that $(kG,m,\eta,\triangle,\epsilon,S)$ actually satisfy the
 
 \nt The above example can be used to show that the symmetric and exterior algebras $S(V)$ and $\wedge (V)$ are also Hopf algebras. The universal enveloping algebra $U(\mathfrak{g})$ of a Lie algebra $\mathfrak{g}$ is a very important example of a Hopf algebra.
 
-\subsection{Representations of Hopf algebras}
-First of all, what a representation of an algebra? Just as group representations are group homomorphisms into the group $GL(V)$, an algebra representation is an algebra homomorphism:
 
-\begin{definition} A \define{representation} of algebra $A$ on vector space $V$ is an algebra homomorphism $\rho:A\rt \End(V)$, i.e. is a linear map that is also a ring homomorphism: $\rho(1)=1$ and $\rho(ab)=\rho(a)\rho(b)$. Recall $\End(V)$ is the endomorphism ring, i.e. the ring of linear maps with addition given pointwise and multiplication given by composition.  
+
+\subsection{Representations of Hopf algebras}
+First of all, what is a representation of an algebra? Just as group representations are group homomorphisms into the group $GL(V)$, an algebra representation is an algebra homomorphism:
+
+\begin{definition} A \define{representation} of algebra $A$ on vector space $V$ is an algebra homomorphism $\rho:A\rt \End(V)$, i.e. is a linear map that is also a ring homomorphism: $\rho(1)=1$ and $\rho(ab)=\rho(a)\rho(b)$. Recall $\End(V)$ is the endomorphism ring, i.e. the ring of linear maps with addition given pointwise and multiplication given by composition. This is completely equivalent to $V$ being a left $A$-module. %Analogously right $A$-module correspond to anti-algebra homomorphisms.
 \end{definition}
 
-\begin{proposition} The representation category $\Rep(H)$, or equivalently the module category $H$-$\Mod$, of Hopf algebra $H$ is a rigid monoidal category.
+\nt Note that when speak of representations of a Hopf algebra we simply mean a representation of its underlying algebra. However unlike arbitrary algebras, the added structure of a Hopf algebra means its module category is (rigid) monoidal.
+
+\begin{proposition} The representation category $\Rep(H)$, or equivalently the module category $H$-$\Mod$, of Hopf algebra $H$ is a monoidal category. Additionally $H$-$\Mod^\text{fd}$ is rigid monoidal.
 \begin{proof}
 By the definition of a bialgebra we know the counit $\epsilon:H\rt k$ is an algebra homomorphism, so it actually defines a represenation of $H$ on $k$. We call it the trivial representation of $H$: 
 $$p:H \rt \End(k)\cong k,\ h \cdot\lambda=\epsilon(h)\lambda\hspace{.5cm} \forall \lambda\in k$$
-As a module, we denote the action on $k$ instead as $h\rhd \lambda=\epsilon(h)\lambda$.\bb
+Alternatively, treating $V$ as an $H$-module, the action on $k$ is denoted as $h\rhd \lambda=\epsilon(h)\lambda$.\bb
 
 \nt Next we use the coproduct to define tensor products of the representations $p_{V_1}:H\rt \text{End}(V_1),\ p_{V_2}:H\rt \text{End}(V_2)$ as $p:H\rt \text{End}(V_1\otimes V_2)$ s.t.
-$$p(h):=(p_{V_1}\otimes p_{V_2})\circ \triangle$$
+$$p(h):=(p_{V_1}\otimes p_{V_2})\circ \triangle(h)$$
 Since $\triangle$ is an algebra homomorphism, and the tensor product of algebra homomorphisms is an algebra homomorphism, this composition is indeed an algebra homomorphism as required. Again in module language we can define the action of $H$ on $V\otimes W$ as 
 $$h\rhd v\otimes w=\sum (h_{(1)}\rhd v)\otimes (h_{(2)}\rhd w)$$
 for $\triangle(h)=\sum h_{(1)}\otimes h_{(2)}$.\bb
 
-\nt Finally we have dual representations. For $p:H\rt \text{End}(V)$, then define $p^*:H\rt \text{End}(V^*)$ such that 
+\nt Finally for finite-dimensional representations we have duals: for $p:H\rt \text{End}(V)$, define $p^*:H\rt \text{End}(V^*)$ such that 
 $$p^*(h)(\phi)(v):=\phi(p(S(h))v)$$
 \end{proof}
 \end{proposition}
@@ -327,8 +331,31 @@ $$p^*(h)(\phi)(v):=\phi(p(S(h))v)$$
 %the trivia Then the counit of $H$ is $\epsilon(g)=1\ \forall g$, meaning it coincides with the trivial representation for groups. Additionally $\triangle: g\mapsto g\otimes g$ tells us the tensor product representation of group algebras coincides with the tensor product of group representations. Finally using the fact $S(g)=g^{-1}$ the dual representation on $kG$ coincides with that of dual group representation. So we see group representation theory is a special case of Hopf algebra representation theory.
 
 \subsection{Quasitriangular structures}
-Not finished.
+\nt Next we give a few important definitions that crop up regularly in the theory of Hopf algebras.
+\begin{definition}\begin{itemize}
+  \item A Hopf algebra is \define{commutative} if its underlying algebra is commutative, i.e. $m\circ \tau=m$.
+  \item A Hopf algebra is \define{cocommutative} if its underlying coalgebra satisfies $\tau \circ \triangle=\triangle$.
+  \item A non-zero $x\in H$ is \define{group-like} if $\triangle(x)=x\otimes x$. (Compare this with the coproduct on a group algebra!)
+  \item An element $x\in H$ is \define{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
+\end{itemize}
+\end{definition}
 
+\nt The set of grouplikes inside a Hopf algbra form a group, whilst the set of primitives are somewhat like elements of a Lie algebra. , whilst the set of primitives forms a Lie algebra with respect to commutator product $[x,y]:=x\cd y-y\cd x$. As we stated above, the universal enveloping algebra $U(\mathfrak{g})$ of Lie algebra $\mathfrak{g}$ is a Hopf algebra, and the subset of primitives is precisely $\mathfrak{g}$. An important theorem of Cartier-Konstant-Milnor-Moore states that every cocommutative Hopf algebras has a decomposition into a (smash) product of the universal enveloping algebra of the Lie algebra formed by its primitive elements with the group algebra created by its group-like elements. Hence cocommutative Hopf algebras can be viewed as structures that merge group theory with Lie theory.\bb
+
+\nt In the following we generalise cocommutative Hopf algebras, allowing for cocommutativity ``up to conjugation'':
+\begin{definition}A \define{quasitriangular} Hopf algebra is a pair $(H, R)$ for Hopf algebra $H$ and invertible $R=\sum_i R_i^{(1)}\otimes R_i^{(2)}\in H\otimes H$ (called the ``quasitriangular structure''), such that for the twist map $\tau$: 
+$$\tau\circ \triangle(h)=R\cd \triangle(h)\cd R^{-1}\hspace{.5cm} \forall h\in H$$
+and for $R_{12}:=R\otimes 1,\ R_{23}:=1\otimes R,\ R_{13}:=\sum_i R_i^{(1)}\otimes 1\otimes R_i^{(2)}$ then: 
+$$(\triangle\otimes \id)(R)=R_{13}R_{23}\hspace{1cm} (\id\otimes \triangle)(R)=R_{13}R_{12}$$
+\end{definition}
+
+\nt Clearly if the Hopf algebra is cocommutative, $\tau\circ \triangle=\triangle$, so it is quasitriangular with $R=1\otimes 1$.
+
+\begin{definition} A quasitriangular Hopf algebra $(H,R)$ is \define{triangular} if $\tau(R)R=1\otimes 1$.  
+\end{definition}
+
+\begin{proposition}If $(H,R)$ is a quasitriangular Hopf Algebra, then $R$ satisfies the \define{quantum Yang-Baxter equation}: $R_{12}R_{13}R_{23}= R_{23}R_{13}R_{12}$. This is essentially one of the relations in the braid group.
+\end{proposition}
 
 \section{Braided categories and Knots}
 For monoidal category $(C,\otimes,1,\Phi)$ (recall $\Phi$ is the associator), define the functor $\cd \otimes^{\op}\cd:C\times C\rt C,\ (V,W)\mapsto W\otimes V$. 
@@ -354,16 +381,6 @@ $$
 \nt The category is \define{symmetric monoidal} if the braiding satisfies $\psi_{V,W}=\psi_{W,V}^{-1}$.
 \end{definition}
 
-\begin{theorem}\label{hopf_braiding} The module category $H$-$\Mod$ of a quasitriangular Hopf algebra $(H,R)$ is a braided monoidal category. When $R$ is triangular (i.e. $\tau(R)=R^{-1}$) then $H$-$\Mod$ is symmetric monoidal.
-\begin{proof}
-We have already seen it is a monoidal category. Now using the quasitriangular structure $R=\sum R^{(1)}\otimes R^{(2)}$, we define braiding on $H$-$\Mod$ as $\psi_{V,W}:V\otimes W \rt W\otimes V$,
-$$v\otimes w \mapsto \tau(R\rhd v\otimes w)=\sum (R^{(2)}\rhd w)\otimes (R^{(1)}\rhd v)$$
-\end{proof}
-\end{theorem} 
-\nt Note that if $H$ is cocomutative then $R:=1\otimes 1$ is a quasitriangular structure on $H$, and for this choice of $R$ the braiding $\psi_{V,W}$ is just the flip map $\tau$.\bb
-
-\nt Claim: there is a bijection between quasitriangular structures on $H$ and braidings on the category $H$-$\Mod$.\bb
-
 \nt Recall we defined an algebra in Section \ref{mon_cat}, and suggested this could be generalised to monoidal categories. We return finally to this point:
 \begin{definition}\label{algebra} \begin{itemize}
   \item An \define{algebra} $(A,m,u)$ in a monoidal category $(\mathcal{C},\otimes,1)$ is an object $A$ in $\mathcal{C}$ with morphisms $m:A\otimes A\rt A$ and $u:1\rt A$, called product and unit respectively, such that the diagrams we gave above commute. Such objects form a subcategory $\text{Alg}(\mathcal{C})$ of $\mathcal{C}$.
@@ -371,6 +388,16 @@ $$v\otimes w \mapsto \tau(R\rhd v\otimes w)=\sum (R^{(2)}\rhd w)\otimes (R^{(1)}
   \item If $(A,m,u)$ is an algebra in a braided monoidal category $D$ with braiding $\psi$, then $A$ is \define{commutative} if $m\circ \psi_{A,A}=m$. Commutative algebras form a full subcategory of $\text{Alg}(\mathcal{D})$ denoted $\text{ComAlg}(\mathcal{D})$.
 \end{itemize}
 \end{definition}
+
+\nt At this part in my talk I introduced the notation of string diagrams for working with braided categories. I haven't got around to figuring out how to latex these diagrams yet, so in the mean time the reference I used (not neccessarily the best) is \cite{alma9916633704401631} Chapter 9 and 12, and for applications to knot theory see Chapter 13. The final result, that ties up (get it?) Hopf algebras, braided categories and knot theory is the following:
+
+\begin{theorem}\label{hopf_braiding} The module category $H$-$\Mod$ of a quasitriangular Hopf algebra $(H,R)$ is a braided monoidal category. In particular for $R=\sum R^{(1)}\otimes R^{(2)}$, we define components of the braiding as $\psi_{V,W}:V\otimes W \rt W\otimes V$,
+$$v\otimes w \mapsto \tau(R\rhd v\otimes w)=\sum (R^{(2)}\rhd w)\otimes (R^{(1)}\rhd v)$$  
+When $R$ is triangular (i.e. $\tau(R)=R^{-1}$) then $H$-$\Mod$ is symmetric monoidal.\end{theorem} 
+\nt Note when $H$ is cocomutative (i.e. for group algebras) we have quasitriangular structure $R:=1\otimes 1$ on $H$, and for this choice the braiding $\psi_{V,W}$ is just the flip map $\tau$.\bb
+
+%\nt Claim: there is a bijection between quasitriangular structures on $H$ and braidings on the category $H$-$\Mod$.\bb
+
 
 
 
