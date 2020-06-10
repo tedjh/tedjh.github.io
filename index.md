@@ -28,21 +28,17 @@ M13 9PL
 
 Some material I have produced during my studies so far. <!--Some are based on lecture notes from courses I have taken, but the notes here are heavily edited, so any mistakes are likely my own. Feel free to email if typos/mistakes are found.-->
 
-* **Hopf Algebras and Monoidal Categories**, April 2020. [link](./talk_bin/index.html)
-
-    An introduction to Hopf algebras, motivating them by the fact their module categories are examples of (rigid) monoidal categories. We also relate quasitriangular Hopf algebras with braided monoidal categories. <!--These notes are based on several talks I gave in April 2020 to a reading group.-->
-
 * **Rational Cherednik algebras**, MSc Dissertation, University of Manchester, 2019. [pdf](./assets/files/rational_cherednik_algebras.pdf)
-
-    This is split into three parts, with the first being an introduction to cocycles on Hopf algebras and the Drinfeld twist. The second part covers the basic theory of reflection groups (real and complex) and a small amount of invariant theory. The last part collates the previous two with an introduction to rational Cherednik algebras and their generalisations, called braided Cherednik algebras. We finish with a very recent result that shows certain braided Cherednik algebras are Drinfeld twists of rational Cherednik algebras.
+    
+    > This is split into three parts, with the first being an introduction to cocycles on Hopf algebras and the Drinfeld twist. The second part covers the basic theory of reflection groups (real and complex) and a small amount of invariant theory. The last part collates the previous two with an introduction to rational Cherednik algebras and their generalisations, called braided Cherednik algebras. We finish with a very recent result that shows certain braided Cherednik algebras are Drinfeld twists of rational Cherednik algebras.
 
 * **Quantum algebra**, MSc Project, University of Manchester,2019. [pdf](./assets/files/msc_draft.pdf)
-
-    A short project introducing the basic theory of Hopf algebras. We also prove that the Drinfeld (or quantum) double of S_3 is not isomorphic to a group algebra.
+    
+    > A short project introducing the basic theory of Hopf algebras. We also prove that the Drinfeld (or quantum) double of S_3 is not isomorphic to a group algebra.
 
 * **Kochen-Specker Theorem**, Part III Essay, University of Cambridge, 2017. [pdf](./assets/files/kochen_specker.pdf)
-
-    A short essay on the Kochen-Specker theorem in Quantum foundations.
+    
+    > A short essay on the Kochen-Specker theorem in Quantum foundations.
 
 <!--* Lie Algebras [pdf](./assets/files/lie_algebras.pdf)
 
@@ -55,10 +51,21 @@ Some material I have produced during my studies so far. <!--Some are based on le
 
 ## Talks
 
-* POSTPONED "Rational Cherednik algebras and twisting", British Early Career Mathematicians' Colloquium, University of Birmingham, April 2020.
+* **Upcoming**: British Early Career Mathematicians' Colloquium, University of Birmingham, July 2020.
 
-* "What are Vertex Algebras", University of Bath Algebra and Geometry Seminar, October 2015.
+* University of Manchester, Algebra Seminar, June 2020. [slides](./assets/files/seminar_09_06_20.pdf)
+  
+  > "Twists of rational Cherednik algebras": A summary of joint work between myself, Y. Bazlov, A. Berenstein and A. McGaw on rational and braided Cherednik algebras and how they are related via cocycle/Drinfeld twists.
 
+* University of Cambridge, Junior Algebra Seminar, May 2020
+
+* University of Manchester, Category theory reading group, April 2020. [website_notes](./assets/files/talk_bin/index.html)
+  
+  > "Hopf Algebras and Monoidal Categories": This was an introduction to the theory of Hopf algebras, and (braided) monoidal categories, with some insights into how they are related.
+
+* University of Bath, Algebra and Geometry Seminar, October 2015.
+
+  > "What are Vertex Algebras": An introduction to Vertex algebras based on an undergraduate summer research project.
 
 <!---Text can be **bold**, _italic_, or ~~strikethrough~~.
 

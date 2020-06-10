@@ -1,0 +1,415 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1.2in]{geometry}
+\usepackage[colorlinks,unicode]{hyperref}
+\usepackage[all]{xy}
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage{amsmath,amsthm,amsfonts,longtable,verbatim,tikz-cd,multicol,amssymb,wasysym,setspace,graphicx}
+
+%UNCOMMENT THIS LATER!
+\usepackage{plastex}
+
+
+% Packages incompatible with plastex.
+%%%%%%\usepackage{xspace}
+%%%%%%\usepackage{mathtools}
+%%%%%%\usepackage{mathrsfs}
+\urlstyle{same}
+
+\usepackage[inline]{enumitem}
+
+\onehalfspacing
+
+\newcommand{\bb}{\medbreak}
+\newcommand{\nt}{\noindent}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\rt}{\xrightarrow{}}
+\newcommand{\xrt}{\xrightarrow}
+\newcommand{\cg}{\mathfrak{g}}
+\newcommand{\cd}{\cdot}
+\newcommand{\id}{\text{id}}
+\newcommand{\gl}{\mathfrak{gl}}
+\newcommand{\GL}{\text{GL}}
+\newcommand{\ad}{\text{ad}}
+\newcommand{\End}{\text{End}}
+\newcommand{\Der}{\text{Der}}
+\newcommand{\chr}{\text{char}}
+\newcommand{\tr}{\text{tr}}
+\newcommand{\rad}{\text{Rad}}
+\newcommand{\prim}{\text{prim}}
+\newcommand{\im}{\text{Im}}
+\newcommand{\spn}{\text{span}}
+\newcommand{\gsl}{\mathfrak{sl}}
+\newcommand{\iso}{\text{Iso}}
+\newcommand{\ind}{\text{Ind}}
+\newcommand{\ob}{\text{ob}}
+\newcommand{\CC}{\mathscr{C}}
+\newcommand{\DD}{\mathscr{D}}
+\newcommand{\aut}{\text{Aut}}
+\newcommand{\rank}{\text{rank}}
+\newcommand{\ux}{\underline{x}}
+\newcommand{\uy}{\underline{y}}
+\newcommand{\Rep}{\text{Rep}}
+\newcommand{\Tr}{\text{Tr}}
+\newcommand{\Mod}{\text{Mod}}
+\newcommand{\Vect}{\textbf{Vect}}
+\newcommand{\op}{\text{op}}
+\newcommand{\ev}{\text{ev}}
+\newcommand{\coev}{\text{coev}}
+
+% this is to highlight words that are being defined and enter.
+\newcommand{\define}[1]{\textbf{#1}}
+
+% The next two lines define a reasonable looking not divides sign.
+\DeclareMathSymbol{\nmid}{\mathrel}{AMSb}{"2D}
+\newcommand{\notdiv}{\nmid}
+
+% Make the tilde command wider
+\renewcommand{\tilde}{\widetilde}
+
+% the following two commands change the way the footnote symbol is
+% made to be old fashioned: *, dagger, etc.  
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+% We start with things like lemmas, theorems, etc.
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{cor}[lemma]{Corollary}
+\newtheorem*{scholium}{Scholium}
+\newtheorem{proposition}[lemma]{Proposition}
+
+% Now we create things like definitions, examples, comments, etc.  
+\theoremstyle{definition}
+\newtheorem{definition}[lemma]{Definition}
+\newtheorem{example}[lemma]{Example}
+\newenvironment{comments}{}{}
+\newenvironment{solution}{\smallskip\par\noindent\emph{Solution: }}{}
+\newenvironment{note}{}{}
+
+%-----------------------------------------------------------------
+
+\title{Talk: Hopf algebras}
+\author{Ted Jones-Healey}
+\date{}
+
+\begin{document}
+
+%\maketitle
+
+\begin{abstract}Notes based on a talk on the relationship between Hopf algebra's, category theory and Knot theory. Majid \cite{alma9916633704401631} was the main source for this material, although \cite{etingof2016tensor} and \cite{alma9956076580001631} were also useful.\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+We try to keep this self-contained, but realistically a small amount of understanding of tensor products, dual spaces and basic category theory is required. Plan:
+\begin{itemize}
+  \item Tensor products $\rt$ monoidal categories. Examples: $\Vect$, Rep(G).
+  \item Dual vector spaces $\rt$ rigid monoidal categories. Examples: $\Vect^\text{fd}$, Rep(G)$^\text{fd}$.
+  \item Definition of Hopf algebras (Examples: Group algebras, tensor/symmetric algebras, universal enveloping algebra)\begin{itemize}
+    \item $H$-Mod is monoidal and $H$-Mod$^\text{fd}$ is rigid monoidal.
+    \item $H$-Mod generalises Rep$(G)$ 
+    %define algebra representation, show every repn of G defines a representation of the algebra $kG$, which is equivalent to a $kG$-module. Recall $kG$ is Hopf algebra.
+    \item Define quasitriangular Hopf algebras.
+  \end{itemize}
+  \item Define braided monoidal category. Examples: $\Vect$, $H$-Mod for quasitriangular $H$.
+  \item Application: Knot theory.
+\end{itemize}
+
+\section{Monoidal categories}\label{mon_cat}
+Tensor products are essential to defining Hopf algebras, and we will see that a monoidal structure is the categorical generalisation of a tensor product. In the following all structures are taken to be linear over a field $k$ of characteristic $0$, usually just assume $k=\Cc$.\bb
+
+\nt Given two $k$-vector spaces $V,W$, the \define{tensor product} $V\otimes W$ is a vector space made up $k$-linear combinations of symbols called ``pure tensors'' $v\otimes w$ for $v\in V,w\in W$ satisfying:\begin{itemize}
+  \item $(v_1+v_2)\otimes w=v_1\otimes w+v_2\otimes w$ and $v\otimes (w_1+w_2)=v\otimes w_1 +v\otimes w_2$
+  \item $\lambda(v\otimes w)=(\lambda v)\otimes w=v\otimes (\lambda w)$ for $\lambda \in k$
+\end{itemize}
+First note that $k\otimes V\cong V$, which we see via the linear map $\lambda\otimes v\mapsto \lambda v$ with inverse $v\mapsto 1_k\otimes v$. Secondly, given linear maps $\phi: V\rt W, \phi':V'\rt W'$ we can define the tensor product linear map as $\phi\otimes \phi':V\otimes V'\rt W\otimes W',\ v\otimes v'\mapsto \phi(v)\otimes \phi(v')$. Note we only defined $\phi\otimes \phi'$ on pure tensors, however the assumption that $\phi\otimes \phi'$ is a linear map is enough to deduce its action on the rest of $V\otimes V'$.\bb
+
+\nt The reason why tensor products are so useful is that they satisfy the following universal property: for every bilinear map $f:V\times W\rt Z$ there exists a unique \underline{linear} map $\bar{f}:V\otimes W\rt Z$ such that $\bar{f}(v\otimes w)=f(v,w)$. So, in effect, we can turn bilinear maps into linear map. We put this to use with an alternative definition for an algebra:
+
+\begin{definition} We define an \define{algebra} in two equivalent ways:\begin{itemize}
+  \item Definition 1: A vector space $A$ with an associative and bilinear map $m: A\times A\rt A$ (the product) and unit element $1_A\in A$ s.t. $a\cd 1_A=a=1_A\cd a\ \forall a\in A$.
+  \item Definition 2: A vector space $A$ with linear map $m:A\otimes A\rt A$ satisfying the ``associativity axiom", which is the condition that the first diagram below commutes, and a ``unit map'' $\eta:k\rt A, \lambda\mapsto \lambda 1_A$ such that the second diagram commutes:
+\end{itemize}
+\begin{useimager}
+\begin{equation*}
+\xymatrix@C=4em{
+  A\otimes A\otimes A \ar[r]^{m\otimes \id} \ar[d]_{\id \otimes m} & A\otimes A \ar[d]^m\\
+  A\otimes A \ar[r]_m & A\\
+}
+\hspace{.5cm}
+\xymatrix@C=4em{
+  k\otimes A \ar[rd]_{\cong} \ar[r]^{\eta\otimes \id} & A\otimes A \ar[d]_m & A\otimes k \ar[l]_{\id\otimes \eta} \ar[ld]^\cong\\
+  & A}
+\end{equation*}
+\end{useimager}
+\end{definition}
+
+\nt Note $\id:A\rt A$ is the identity linear map. There are several advantages to Definition 2, the first being that the axioms that define an algebra get reformulated as commuting diagrams. We will also express the axioms for a Hopf algebra as commuting diagrams and this helps a lot to simplify its definition. The second advantage is that by replacing bilinear maps with linear maps, we allow for a more categorical definition of an algebra. In particular, we can view an algebra as an object $A$ in $\Vect$, the category of $k$-vector spaces, with morphisms $m:A\otimes A\rt A$ and $\eta:k\rt A$ satisfying the commuting diagrams above. A crucial part of the category $\Vect$ that allows for the construction of algebras inside it is that is has notion of tensor product. Therefore we might guess that algebras could be defined in other categories so long as they have something that plays the role of the tensor product:
+
+\begin{definition}A \define{monoidal category} is a category $C$ with the following:\begin{itemize}
+  \item a functor $\otimes :C\times C\rt C$ where $C\times C$ is the product category
+  \item a natural isomorphism $\Phi:(\cd \otimes \cd)\otimes \cd \rt \cd \otimes (\cd \otimes \cd)$ called the ``associator" (i.e. for all $V,W,Z\in \ob(C)$, $\Phi_{V,W,Z}:(V\otimes W)\otimes Z\xrt{\sim} V\otimes (W\otimes Z)$ is an isomorphism).
+  \item an object $1\in \ob(C)$ called the ``unit'' with natural isomorphisms $l:\cd \otimes 1\rt \cd$, and $r:1\otimes \cd \rt \cd $ (i.e. $V\cong V\otimes 1\cong 1\otimes V$) 
+\end{itemize}
+where $\Phi, l,r$ satisfying the following commuting diagrams $\forall V,W,Z,U$:
+\begin{useimager}
+$$\xymatrix@C=2em{
+ & (V\otimes W)\otimes (Z\otimes U) \ar[rd]^\Phi & \\
+((V\otimes W)\otimes Z)\otimes U \ar[ru]^{\Phi} \ar[d]_{\Phi\otimes \id} & & V\otimes (W\otimes (Z\otimes U))\\
+(V\otimes (W\otimes Z))\otimes U \ar[rr]_\Phi & & V\otimes((W\otimes Z)\otimes U) \ar[u]_{\id \otimes \Phi}
+}
+$$
+\end{useimager}
+\begin{useimager}
+$$\xymatrix@C=2em{
+  (V\otimes 1)\otimes W \ar[rr]^\Phi && V\otimes (1\otimes W)\\
+  & V\otimes W \ar[lu]^{l\otimes \id} \ar[ru]_{\id \otimes r} & \\
+}$$  
+\end{useimager}
+\end{definition}
+
+\subsection{A detour into the Coherence theorem}
+\nt It is not obvious why we should want the first diagram above to commute (known as the pentagon condition). Note that given an ordered sequence of objects $X_1,\dots,X_n$ in $C$ we can take their tensor product, but depending on the order in which take tensor products we get different bracketings on $X_1\otimes \dots \otimes X_n$, giving distinct objects of $C$. We wish to identify the different bracketings so that we can speak of $X_1\otimes\dots \otimes X_n$ unambiguously.\bb
+
+\nt When $n=3$, we know by $\Phi$ the two ways of bracketing give isomorphic objects $X_1\otimes (X_2\otimes X_3)\cong (X_1\otimes X_2)\otimes X_3$. For general $n\geq 3$ it can then shown there is an isomorphism between any two bracketings of $X_1\otimes \dots \otimes X_n$ by repeated applications of $\Phi$. There is a beautiful way to see this using graphs theory. We identifying each bracketing of $X_1\otimes \dots \otimes X_n$ with a vertex, and connect vertices by an edge if they are related by an application of $\Phi$. The result is a convex polytope known as an ``associahedron". The associahedron in the case $n=4$ is actually depicted in the pentagon diagram above, i.e. it is a pentagon. The case $n=5$ is depicted below.
+\begin{figure}\label{fig1}
+\centering
+\includegraphics[height=7cm]{associahedron.png}
+\caption{Associahedron at $n=5$}
+\label{Unknot}
+\end{figure}\bb
+\nt We see that any two bracketings can be related by applications of $\Phi$ as a result of the fact that there is a path between each pair of vertices on the associahedron, i.e. it is a connected graph.\bb
+
+\nt So we have that the different bracketings give isomorphic objects, however to unambiguously identify them we need to ensure they are related by \underline{unique} isomorphisms. Looking at the associahedron we see there can be several different paths between any two vertices, corresponding to different isomorphisms between two bracketings of $X_1\otimes \dots \otimes X_n$. On the pentagon diagram (i.e. when $n=4$) we essentially have two possible routes between any pair of vertices. The pentagon condition equates the two routes between $((V\otimes W)\otimes Z)\otimes U$ and $V\otimes (W\otimes (Z\otimes U))$, but with a little thought one can see that this means the routes between any pair of vertices on the pentagon diagram are equal. The content of the ``Coherence theorem" is that this condition is sufficient to deduce that all bracketings of $X_1\otimes \dots \otimes X_n$ are related by a unique isomorphism for all $n\geq 3$, and so they can be canonically identified with each other.
+
+\subsection{Examples}
+The obvious example of a monoidal category is $\Vect$, the category of $k$-vector spaces. It can be checked that the tensor product as defined at the start satisfies all the conditions to make $\Vect$ a monoidal category, where we take the unit to be the field, i.e. $1:=k$. However a more interesting example comes from representation theory of groups.\bb
+
+\subsubsection{Representations of groups}
+\nt Recall for a group $G$ and vector space $V$, a \define{group representation} is a group homomorphism $\rho:G\rt \GL(V)$. $\GL(V)$ is the set of invertible linear maps $V\rt V$, and under a choice of basis $\{v_1,\dots,v_n\}$ for $V$ this set can be identified with $\GL_n(k)$, the $n\times n$-invertible matrices over $k$. So the map $\rho$ sends elements of our group $G$ to linear maps (or matrices) on $V$ in a way that respects the group structure.\bb
+
+\begin{definition} The category $\Rep(G)$ has representations of $G$ for objects and morphisms as equivariant maps. One should check this indeed satisfies the axioms of a category.\end{definition}
+
+\begin{proposition} $\Rep(G)$ is a monoidal category. 
+\begin{proof}
+Indeed for representations $\rho_V:G\rt \GL(V), \rho_W:G\rt \GL(W)$ we define the tensor product representation as $\rho_{V\otimes W}:G\rt \GL(V\otimes W), g\mapsto \rho_V(g)\otimes \rho_W(g)$. As a sanity check first note we do have $\rho_V(g)\otimes \rho_W(g)\in \GL(V\otimes W)$, since, after first recalling the definition of a tensor product of linear maps (see start of Section \ref{mon_cat}), we find $\rho_V(g):V\rt V,\rho_W(g):W\rt W$ so $\rho_V(g)\otimes \rho_W(g):V\otimes W\rt V\otimes W$. The unit object of $\Rep(G)$ is the trivial representation, defined as $\rho_1:G\rt \GL(k)\cong k,\ \rho_1(g)=1_k\ \forall g\in G$.
+\end{proof}
+\end{proposition}
+
+\begin{definition} For finite group $G$ and field $k$ (think $k=\Cc$) the \define{group algebra} $kG$ is the $k$-vector space with basis given by $g\in G$. So a general element is given by expressions of the form $\sum_{g\in G}\lambda_g g$. We define the product of basis vectors simply as $g\cd h=gh$, and extend the product linearly to the result of the vector space. More explicitly, the product rule is:
+$$(\sum_{g\in G} \lambda_g g)\cd (\sum_{g'\in G} \lambda_{g'}g')=\sum_{h\in G}(\sum_g \lambda_g \lambda_{g^{-1}h})h$$
+Obviously the unit of the algebra is simply the element $1$ of $G$ regarded as a vector in $kG$.
+\end{definition}
+\nt Indeed it can be checked this forms an algebra, so in particular it is also a ring, so we can consider modules over $kG$. Recall a (left) $R$-module is an abelian group $V$ (for instance a $k$-vector space) with an action $\rhd:R\times V\rt V$ satisfying $(r\cd s)\rhd v=r\rhd (s\rhd v)$ and $1_R\rhd v=v$.\bb
+
+\nt The following result is very important in that it shows representation theory is just a part of module theory. Let $kG$-$\Mod$ denote the category of left $kG$-modules with morphisms being $kG$-module homomorphisms.
+
+\begin{proposition} There is an isomorphism between the categories $\Rep(G)$ and $kG$-$\Mod$.
+\begin{proof}
+For every group representation $\rho:G\rt \GL(V)$ there is a left $kG$-module structure on $V$ defined via the following action: 
+$$(\sum_g \lambda_g g)\rhd v:= \sum_g \lambda_g \rho(g)(v)$$
+It is very quick to check this satisfies axioms to be a module. Conversely, given a $kG$-module $V$, define $\rho:G\rt \GL(V)$ as $\rho(g)(v):=g\rhd v$. And again the module axioms mean that this is indeed a representation. We have implicitly defined functors between these two categories (although not explained how the functors act on morphisms). It remains to check that the action under one of the functors and then the other leaves the object unchanged, making these functors mutually inverse.
+\end{proof}  
+\end{proposition}
+\nt We see subrepresentations are equivalent to $kG$-submodules, and irreducibility of a representation is equivalent to the corresponding $kG$-module being simple. For more this see Section 3.2 of Sengupta \cite{alma9956076580001631}.
+
+
+\section{Rigid monoidal categories}
+We've seen that $\Vect$ and $\Rep(G)$ have monoidal structures, meaning they have unit objects and a notion of tensor product. Another feature of these categories is that they have dual objects. In particular for $\Vect$, the dual of a vector space $V$ is the ``dual space" $V^*$, the vector space of linear maps $V\rt k$. In $\Rep(G)$, for each object/representation $p:G\rt GL(V)$ we also have dual group representations given by
+$$p^*:G\rt GL(V^*),\ p^*(g)(\phi)(v):= \phi(p(g^{-1})v)$$ 
+i.e. this is a representation of $G$ on the dual space $V^*$. These dual objects have a categorical equivalent inside monoidal categories:
+
+\begin{definition}\begin{itemize}
+  \item An object $V$ in a monoidal category is \define{rigid} if there exists an object $V^*$ called the (left) dual, and morphisms $\ev_V:V^*\otimes V\rt 1,\ \coev_V:1\rt V\otimes V^*$ satisfying
+  $$(\id\otimes \ev_V)\circ (\coev_V\otimes \id)=\id_V\hspace{.5cm} (\ev_V\otimes \id)\circ (\id \otimes \coev_V)=\id_{V^*}$$
+  \item A \define{rigid monoidal category}  is a monoidal category in which every object is rigit.
+\end{itemize}
+\end{definition}
+\nt If you recall your linear algebra, for linear maps $\phi:V\rt W$ there is dual map $\phi^*:W^*\rt V^*$, and there is way to define similarly such dual morphisms between rigid objects.\bb
+
+\nt We see that $\Vect^\text{fd}$, the category of finite-dimensional vector spaces, is a rigid monoidal category, where $\ev:V^*\otimes V\rt k$ is defined as you might expect, $\phi\otimes v\mapsto \phi(v)\in k$. Also, for basis $v_1,\dots,v_n$ for $V$, and its dual basis $f_1,\dots,f_n$ on $V^*$ (i.e. $f_i(v_j)=\delta_{ij}$) then $\coev(\lambda):=\lambda \sum_i v_i\otimes f_i$.\bb
+
+\nt $\Rep(G)^\text{fd}$, or alternatively $kg$-$\Mod^\text{fd}$ the category of finite-dimensional $kG$-modules, is rigid if we define $\ev_V,\coev_V$ exactly as we did for $\Vect$ for each $kG$-module $V$. Using the definition we gave above for the dual representation $V^*$, i.e. we put a $kG$-module structure on the dual space $V^*$, and it can be checked this is a rigid object for this choice of $\ev_V,\coev_V$.
+
+\section{Hopf algebras}
+
+\begin{definition} A \define{coalgebra} is a vector space $C$ with linear map $\triangle:C \rt C \otimes C$ called the \define{coproduct}, and linear map $\epsilon: C \rt k$ called the \define{counit}, such that both diagrams below commute. 
+\begin{useimager}
+$$\xymatrix@C=4em{
+C \otimes C \otimes C & C \otimes C \ar[l]_{\id \otimes \Delta}\\
+C \otimes C \ar[u]^{\Delta \otimes \id} & C \ar[l]^{\Delta} \ar[u]_{\Delta}
+}\hspace{.5cm}
+\xymatrix@C=4em{
+k \otimes C & C \otimes C \ar[l]_{\epsilon \otimes \id} \ar[r]^{\id \otimes \epsilon} & C \otimes k\\
+ & C \ar[u]_\triangle \ar[ru]_\cong \ar[ul]^\cong
+}
+$$
+\end{useimager}
+\nt The first diagram encodes the property called \define{coassociativity}. Notice that these diagrams are simply the dual diagrams (i.e. arrows reversed) to those used to define an algebra. 
+\end{definition}
+
+%For all vector spaces $V,W$ define the flip map as $\tau:V\otimes W\rt W\otimes V, v\otimes w \mapsto w\otimes v$.
+
+\begin{definition}\label{tens_algebras} For algebras $(A,m_1,\eta_1),(B,m_2,\eta_2)$, the tensor product $A\otimes B$ has an algebra structure given by a product: $(a \otimes c)\cd (b \otimes d) = ab \otimes cd\ \forall a,b\in A,c,d\in B$, and unit $1_{A\otimes B}=1_A\otimes 1_B$. Alternatively, the product and unit are defined as 
+$$m_{A\otimes B}: (A\otimes B) \otimes (A\otimes B)\rt A\otimes B,\ m_{A\otimes B}:=(m_1\otimes m_2)\circ (\id \otimes \tau \otimes \id)$$ 
+$$\eta_{A\otimes B}:k\rt A\otimes B,\ \eta_{A\otimes B}:=(\eta_1 \otimes \eta_2)\circ \phi^{-1}$$
+where $\phi:k\otimes k\rt k,\lambda\otimes \mu \mapsto \lambda\mu$ is an isomorphism with inverse $\phi^{-1}(\lambda)=1\otimes \lambda$.
+\end{definition}
+
+\begin{definition} A \define{bialgebra} is $(B,m,\eta,\triangle,\epsilon)$ where $(B,m,\eta)$ is an algebra, $(B,\triangle,\epsilon)$ is a coalgebra, and $\triangle,\epsilon$ are algebra homomorphisms.\bb
+  
+\nt Elaborating on this a bit, since $\triangle:B\rt B\otimes B$, we are implicitly giving $B\otimes B$ the algebra structure as described above. The algebra homomorphism property is then $\triangle (gh) = \triangle(g)\triangle(h)$, or yet more explicitly: 
+$$\triangle \circ m = (m\otimes m) \circ (\id \otimes \tau \otimes \id) \circ (\triangle \otimes \triangle)$$
+\end{definition}
+
+\begin{definition} A \define{Hopf algebra} $H$ is a bialgebra $(H,m,\eta, \triangle, \epsilon)$ with linear map $S:H \rt H$ called the \define{antipode}, satisfying the \define{antipode axiom} as the following commuting diagram:
+\begin{useimager}
+$$\xymatrix@C-1.5em@R+2em{
+ & H \otimes H \ar[rr]^{S \otimes \id} & & H \otimes H \ar[dr]^m & \\
+H \ar[ur]^\triangle \ar[dr]_\triangle \ar[rr]^\epsilon & & k \ar[rr]^\eta & & H \\
+ & H \otimes H \ar[rr]_{\id \otimes S} & & H \otimes H \ar[ur]_m &
+}
+$$\end{useimager}
+\end{definition}
+
+\subsection{Examples}
+\begin{example} The group algebra! The group algebra $kG$ is obviously an algebra, and we define Hopf algebra structure as follows:\begin{itemize}
+  \item the coproduct $\triangle:kG\rt kG\otimes kG$ where $g\mapsto g\otimes g$ and we extend linearly to $kG$.
+  \item $\epsilon:kG \rt k, g\mapsto 1_k$
+  \item $S:kG\rt kG, g\mapsto g^{-1}$
+\end{itemize}
+It remains to check that $(kG,m,\eta,\triangle,\epsilon,S)$ actually satisfy the axioms of a Hopf algebra. Since group algebras are just a special case of Hopf algebras, we can see that the whole of group representation theory is just a special case of the representation theory of Hopf algebras.
+\end{example}
+
+\begin{example} For vector space $V$, let $T^n(V):=V\otimes \dots \otimes V$, the $n$-fold tensor product of $V$. Then the \define{tensor algebra} of $V$ is the vector space: 
+  $$T(V):=\bigoplus_{n=0}^\infty T^n(V)=k\oplus V\oplus (V\otimes V)\oplus (V\otimes V\otimes V)\oplus \dots$$
+  with multiplication given by the tensor product:
+  $$T^k(V)\otimes T^l(V)\rt T^{k+l}(V),\ (v\otimes \dots \otimes w)\cd (x\otimes \dots \otimes y):=(v\otimes \dots \otimes w\otimes x \otimes \dots \otimes y)$$ 
+  which we can extend linearly to $T(V)$. Then on the subspace $V$ of $T(V)$ define: 
+  $$\triangle(v):=v\otimes 1+1\otimes v,\ \epsilon(v):=0,\ S(v):=-v$$
+  Also on the subspace $k$ of $T(V)$, let 
+  $$\triangle(1_k):=1_k\otimes 1_k,\ \epsilon(\lambda):=\lambda,\ S(\lambda):=1\ \forall\lambda\in k$$ 
+  $\triangle,\epsilon$ extend to all of $T(V)$ as algebra homomorphisms. In particular: $\epsilon(x)=0\ \forall x\in\bigoplus_{n=1}T^n(V)$. Whereas $S$ extends as an anti-algebra homomorphism, so it can be shown: $S(v_1\otimes \dots \otimes v_n)=(-1)^n v_n\otimes \dots \otimes v_1$. %Explicitly describing the extension of $\triangle$ to $T(V)$ brings us to into the intricacies of gradings of $T(V)\otimes T(V)$ and shuffle products, which takes us quite far from the objective of this essay. Note this can be done, and does indeed give $T(V)$ a Hopf algebra structure for which the reader can find proofs of this in Theorem $111.2.4$ and Lemma $111.3.6$ of Kassle \cite{kassel}.
+  \end{example}
+
+\nt The above example can be used to show that the symmetric and exterior algebras $S(V)$ and $\wedge (V)$ are also Hopf algebras. The universal enveloping algebra $U(\mathfrak{g})$ of a Lie algebra $\mathfrak{g}$ is a very important example of a Hopf algebra.
+
+
+
+\subsection{Representations of Hopf algebras}
+First of all, what is a representation of an algebra? Just as group representations are group homomorphisms into the group $GL(V)$, an algebra representation is an algebra homomorphism:
+
+\begin{definition} A \define{representation} of algebra $A$ on vector space $V$ is an algebra homomorphism $\rho:A\rt \End(V)$, i.e. is a linear map that is also a ring homomorphism: $\rho(1)=1$ and $\rho(ab)=\rho(a)\rho(b)$. Recall $\End(V)$ is the endomorphism ring, i.e. the ring of linear maps with addition given pointwise and multiplication given by composition. This is completely equivalent to $V$ being a left $A$-module. %Analogously right $A$-module correspond to anti-algebra homomorphisms.
+\end{definition}
+
+\nt Note that when speak of representations of a Hopf algebra we simply mean a representation of its underlying algebra. However unlike arbitrary algebras, the added structure of a Hopf algebra means its module category is (rigid) monoidal.
+
+\begin{proposition} The representation category $\Rep(H)$, or equivalently the module category $H$-$\Mod$, of Hopf algebra $H$ is a monoidal category. Additionally $H$-$\Mod^\text{fd}$ is rigid monoidal.
+\begin{proof}
+By the definition of a bialgebra we know the counit $\epsilon:H\rt k$ is an algebra homomorphism, so it actually defines a represenation of $H$ on $k$. We call it the trivial representation of $H$: 
+$$p:H \rt \End(k)\cong k,\ h \cdot\lambda=\epsilon(h)\lambda\hspace{.5cm} \forall \lambda\in k$$
+Alternatively, treating $V$ as an $H$-module, the action on $k$ is denoted as $h\rhd \lambda=\epsilon(h)\lambda$.\bb
+
+\nt Next we use the coproduct to define tensor products of the representations $p_{V_1}:H\rt \text{End}(V_1),\ p_{V_2}:H\rt \text{End}(V_2)$ as $p:H\rt \text{End}(V_1\otimes V_2)$ s.t.
+$$p(h):=(p_{V_1}\otimes p_{V_2})\circ \triangle(h)$$
+Since $\triangle$ is an algebra homomorphism, and the tensor product of algebra homomorphisms is an algebra homomorphism, this composition is indeed an algebra homomorphism as required. Again in module language we can define the action of $H$ on $V\otimes W$ as 
+$$h\rhd v\otimes w=\sum (h_{(1)}\rhd v)\otimes (h_{(2)}\rhd w)$$
+for $\triangle(h)=\sum h_{(1)}\otimes h_{(2)}$.\bb
+
+\nt Finally for finite-dimensional representations we have duals: for $p:H\rt \text{End}(V)$, define $p^*:H\rt \text{End}(V^*)$ such that 
+$$p^*(h)(\phi)(v):=\phi(p(S(h))v)$$
+\end{proof}
+\end{proposition}
+
+\nt In the special case that $H=kG$ a group algebra, where $\epsilon(g)=1$,$\triangle(g)=g\otimes g$, and $S(g)=g^{-1}$, we see that the trivial, tensor product and dual reprsentations for $kG$ as a Hopf algebra coincide with those of the group $G$.
+
+%the trivia Then the counit of $H$ is $\epsilon(g)=1\ \forall g$, meaning it coincides with the trivial representation for groups. Additionally $\triangle: g\mapsto g\otimes g$ tells us the tensor product representation of group algebras coincides with the tensor product of group representations. Finally using the fact $S(g)=g^{-1}$ the dual representation on $kG$ coincides with that of dual group representation. So we see group representation theory is a special case of Hopf algebra representation theory.
+
+\subsection{Quasitriangular structures}
+\nt Next we give a few important definitions that crop up regularly in the theory of Hopf algebras.
+\begin{definition}\begin{itemize}
+  \item A Hopf algebra is \define{commutative} if its underlying algebra is commutative, i.e. $m\circ \tau=m$.
+  \item A Hopf algebra is \define{cocommutative} if its underlying coalgebra satisfies $\tau \circ \triangle=\triangle$.
+  \item A non-zero $x\in H$ is \define{group-like} if $\triangle(x)=x\otimes x$. (Compare this with the coproduct on a group algebra!)
+  \item An element $x\in H$ is \define{primitive} if $\triangle(x)=x\otimes 1+1\otimes x$.
+\end{itemize}
+\end{definition}
+
+\nt The set of grouplikes inside a Hopf algbra form a group, whilst the set of primitives are somewhat like elements of a Lie algebra. , whilst the set of primitives forms a Lie algebra with respect to commutator product $[x,y]:=x\cd y-y\cd x$. As we stated above, the universal enveloping algebra $U(\mathfrak{g})$ of Lie algebra $\mathfrak{g}$ is a Hopf algebra, and the subset of primitives is precisely $\mathfrak{g}$. An important theorem of Cartier-Konstant-Milnor-Moore states that every cocommutative Hopf algebras has a decomposition into a (smash) product of the universal enveloping algebra of the Lie algebra formed by its primitive elements with the group algebra created by its group-like elements. Hence cocommutative Hopf algebras can be viewed as structures that merge group theory with Lie theory.\bb
+
+\nt In the following we generalise cocommutative Hopf algebras, allowing for cocommutativity ``up to conjugation'':
+\begin{definition}A \define{quasitriangular} Hopf algebra is a pair $(H, R)$ for Hopf algebra $H$ and invertible $R=\sum_i R_i^{(1)}\otimes R_i^{(2)}\in H\otimes H$ (called the ``quasitriangular structure''), such that for the twist map $\tau$: 
+$$\tau\circ \triangle(h)=R\cd \triangle(h)\cd R^{-1}\hspace{.5cm} \forall h\in H$$
+and for $R_{12}:=R\otimes 1,\ R_{23}:=1\otimes R,\ R_{13}:=\sum_i R_i^{(1)}\otimes 1\otimes R_i^{(2)}$ then: 
+$$(\triangle\otimes \id)(R)=R_{13}R_{23}\hspace{1cm} (\id\otimes \triangle)(R)=R_{13}R_{12}$$
+\end{definition}
+
+\nt Clearly if the Hopf algebra is cocommutative, $\tau\circ \triangle=\triangle$, so it is quasitriangular with $R=1\otimes 1$.
+
+\begin{definition} A quasitriangular Hopf algebra $(H,R)$ is \define{triangular} if $\tau(R)R=1\otimes 1$.  
+\end{definition}
+
+\begin{proposition}If $(H,R)$ is a quasitriangular Hopf Algebra, then $R$ satisfies the \define{quantum Yang-Baxter equation}: $R_{12}R_{13}R_{23}= R_{23}R_{13}R_{12}$. This is essentially one of the relations in the braid group.
+\end{proposition}
+
+\section{Braided categories and Knots}
+For monoidal category $(C,\otimes,1,\Phi)$ (recall $\Phi$ is the associator), define the functor $\cd \otimes^{\op}\cd:C\times C\rt C,\ (V,W)\mapsto W\otimes V$. 
+
+\begin{definition} A \define{braided monoidal category} is a monoidal category $(C,\otimes,1,\Phi)$ with a natural isomorphism $\psi: \cd \otimes \cd \rt \cd \otimes^{\text{op}}\cd $ (i.e. $\psi_{V,W}:V\otimes W \xrt{\sim} W\otimes V\ \forall V,W$) satisfying the ``hexagon conditions":
+\begin{useimager}
+$$\xymatrix{
+  & V\otimes (W\otimes Z) \ar[ld]_{\id\otimes \psi} \ar[rd]^{\Phi^{-1}} & \\
+V\otimes (Z\otimes W) \ar[d]_{\Phi^{-1}} & & (V\otimes W)\otimes Z \ar[d]^{\psi}\\
+(V\otimes Z)\otimes W \ar[rd]_{\psi\otimes \id} & & Z\otimes (V\otimes W) \ar[ld]^{\Phi^{-1}}\\
+ & (Z\otimes V)\otimes W & \\
+}$$
+$$
+\xymatrix{
+  & (V\otimes W)\otimes Z \ar[ld]_{\Phi} \ar[rd]^{\psi\otimes \id} & \\
+V\otimes (W\otimes Z) \ar[d]_{\psi} & & (W\otimes V)\otimes Z \ar[d]^{\Phi}\\
+(W\otimes Z)\otimes V \ar[rd]_{\Phi} & & W\otimes (V\otimes Z) \ar[ld]^{\id\otimes \psi}\\
+ & W\otimes (Z\otimes V) & \\
+}
+$$  
+\end{useimager}
+
+\nt The category is \define{symmetric monoidal} if the braiding satisfies $\psi_{V,W}=\psi_{W,V}^{-1}$.
+\end{definition}
+
+\nt Recall we defined an algebra in Section \ref{mon_cat}, and suggested this could be generalised to monoidal categories. We return finally to this point:
+\begin{definition}\label{algebra} \begin{itemize}
+  \item An \define{algebra} $(A,m,u)$ in a monoidal category $(\mathcal{C},\otimes,1)$ is an object $A$ in $\mathcal{C}$ with morphisms $m:A\otimes A\rt A$ and $u:1\rt A$, called product and unit respectively, such that the diagrams we gave above commute. Such objects form a subcategory $\text{Alg}(\mathcal{C})$ of $\mathcal{C}$.
+
+  \item If $(A,m,u)$ is an algebra in a braided monoidal category $D$ with braiding $\psi$, then $A$ is \define{commutative} if $m\circ \psi_{A,A}=m$. Commutative algebras form a full subcategory of $\text{Alg}(\mathcal{D})$ denoted $\text{ComAlg}(\mathcal{D})$.
+\end{itemize}
+\end{definition}
+
+\nt At this part in my talk I introduced the notation of string diagrams for working with braided categories. I haven't got around to figuring out how to latex these diagrams yet, so in the mean time the reference I used (not neccessarily the best) is \cite{alma9916633704401631} Chapter 9 and 12, and for applications to knot theory see Chapter 13. The final result, that ties up (get it?) Hopf algebras, braided categories and knot theory is the following:
+
+\begin{theorem}\label{hopf_braiding} The module category $H$-$\Mod$ of a quasitriangular Hopf algebra $(H,R)$ is a braided monoidal category. In particular for $R=\sum R^{(1)}\otimes R^{(2)}$, we define components of the braiding as $\psi_{V,W}:V\otimes W \rt W\otimes V$,
+$$v\otimes w \mapsto \tau(R\rhd v\otimes w)=\sum (R^{(2)}\rhd w)\otimes (R^{(1)}\rhd v)$$  
+When $R$ is triangular (i.e. $\tau(R)=R^{-1}$) then $H$-$\Mod$ is symmetric monoidal.\end{theorem} 
+\nt Note when $H$ is cocomutative (i.e. for group algebras) we have quasitriangular structure $R:=1\otimes 1$ on $H$, and for this choice the braiding $\psi_{V,W}$ is just the flip map $\tau$.\bb
+
+%\nt Claim: there is a bijection between quasitriangular structures on $H$ and braidings on the category $H$-$\Mod$.\bb
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\bibliographystyle{plain}
+\bibliography{mybib2} 
+
+\end{document}
