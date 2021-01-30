@@ -51,7 +51,7 @@ Some material I have produced during my studies so far. <!--Some are based on le
 
 ## Talks
 
-* **Upcoming**: British Early Career Mathematicians' Colloquium, University of Birmingham, July 2020.
+* **Upcoming**: University of Birmingham, British Early Career Mathematicians' Colloquium, July 2020.
 
 * University of Manchester, Algebra Seminar, June 2020. [slides](./assets/files/seminar_09_06_20.pdf)
   
