@@ -1,0 +1,35 @@
+body {
+  font-family: Helvetica Neue, Helvetica, Arial;
+  padding: 0;
+  margin: 0;
+}
+
+.text-color {
+  color: #F1FAEE;
+}
+
+#logo-text, #logo-subtext, #catch-phrase {
+  font-weight: bold;
+  text-shadow: 0 1.5px 0 #e63946;
+}
+
+#logo-text {
+  font-size: 6em;
+  text-align: left;
+}
+
+#logo-subtext {
+  font-size: 4em;
+  text-align: left;
+}
+
+#catch-phrase {
+  padding: 1em;
+  font-size: 2em;
+  text-align: left;
+}
+
+/* fix to allow button text to wrap */
+.ui-btn-text {
+  white-space: normal;
+}
