@@ -1,3 +1,6 @@
+var score=0;
+var cardsLength = 0;
+
 var app = (function(cardDeck, Showdown) {
   "use strict";
 
@@ -6,6 +9,7 @@ var app = (function(cardDeck, Showdown) {
     cardCount = 0,
     cards = cardDeck.cards,
     cardsLength = cardDeck.cards.length,
+    
     markdownConverter = new Showdown.converter();
 
   function shuffle(array) {
@@ -49,6 +53,8 @@ var app = (function(cardDeck, Showdown) {
   };
 })(flashcardDeck, Showdown);
 
+cardsLength = flashcardDeck.cards.length;
+
 /*
  jQueryMobile event handlers
  */
@@ -69,6 +75,7 @@ $(document).delegate("#title-page", "pagecreate", function() {
 
 $(document).delegate("#main-page", "pageinit", function() {
   "use strict";
+  document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
   function nextCard() {
     //Remember there is another nextCard() function down below!!!
     $('#flash-card').trigger('collapse');
@@ -100,6 +107,13 @@ $(document).delegate("#main-page", "pageinit", function() {
   });
 });
 
+function refresh() {
+  score=0;
+  document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
+  app.init();
+}
+
+
 function validateForm() {
   var x = document.getElementById("sign").value;
   var y = document.getElementById("answer").textContent;
@@ -108,7 +122,7 @@ function validateForm() {
       document.getElementById("sign").style.borderColor = 'red';
       document.getElementById("sign").style.borderWidth = "medium";
       return false;
-  } else if (x== y) {
+  } else if (x.toLowerCase().trim()== y.toLowerCase().trim()) {
       document.getElementById("visibleanswer").innerHTML = "<img src='images/right.PNG'><p style='display:inline'>Correct!</p>";
       document.getElementById("nextbutton").style.display="block";
       document.getElementById("submitbutton").style.display="none";
@@ -116,6 +130,8 @@ function validateForm() {
       document.getElementById("visibleanswer").style.display="block";
       document.getElementById("sign").style.borderColor = 'darkgrey';
       document.getElementById("sign").style.borderWidth = "thin";
+      score = score +1;
+      document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
   } else {
       document.getElementById("visibleanswer").innerHTML = "<img src='images/wrong.PNG'><p style='display:inline'>The correct answer is: " + y + "</p>"
       document.getElementById("skip-card").style.display="none";
@@ -124,6 +140,7 @@ function validateForm() {
       document.getElementById("visibleanswer").style.display="block";
       document.getElementById("sign").style.borderColor = 'darkgrey';
       document.getElementById("sign").style.borderWidth = "thin";
+      document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
   }
 }
 function nextCard() {

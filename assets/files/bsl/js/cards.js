@@ -17,7 +17,7 @@ flashcardDeck = {
     {
       "question": "<img src='images/d.jpeg'>",
       "answer": "D</sup>"
-    },
+    }/*,
     {
       "question": "<img src='images/e.jpeg'>",
       "answer": "E</sup>"
@@ -106,5 +106,6 @@ flashcardDeck = {
       "question": "<img src='images/z.jpeg'>",
       "answer": "Z</sup>"
     }
+    */
   ]
 };

@@ -45,8 +45,8 @@ body {
 }
 
 .myform {
-  width: 450px;
-  margin:auto;
+  width: 450px !important;
+  margin:auto !important;
 }
 
 #visibleanswer {
