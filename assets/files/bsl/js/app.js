@@ -109,7 +109,7 @@ function validateForm() {
       document.getElementById("sign").style.borderWidth = "medium";
       return false;
   } else if (x== y) {
-      document.getElementById("visibleanswer").innerHTML = "<img src='images/right.png'><p style='display:inline'>Correct!</p>"
+      document.getElementById("visibleanswer").innerHTML = "<img src='images/right.PNG'><p style='display:inline'>Correct!</p>"
       document.getElementById("theform").style.display="none";
       document.getElementById("skip-card").style.display="none";
       document.getElementById("visibleanswer").style.display="block";
@@ -117,7 +117,7 @@ function validateForm() {
       document.getElementById("sign").style.borderColor = 'darkgrey';
       document.getElementById("sign").style.borderWidth = "thin";
   } else {
-      document.getElementById("visibleanswer").innerHTML = "<img src='images/wrong.png'><p style='display:inline'>The correct answer is: " + y + "</p>"
+      document.getElementById("visibleanswer").innerHTML = "<img src='images/wrong.PNG'><p style='display:inline'>The correct answer is: " + y + "</p>"
       document.getElementById("theform").style.display="none";
       document.getElementById("skip-card").style.display="none";
       document.getElementById("visibleanswer").style.display="block";
