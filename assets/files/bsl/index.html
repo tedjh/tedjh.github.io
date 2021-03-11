@@ -21,8 +21,6 @@
       <div id="logo-subtext" class="text-color">Flash Cards</div>
       <div id="catch-phrase" class="text-color"><span id="app-catch-phrase"></span></div>
       <div><a href="#main-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a></div>
-      
-      <!--<a href="#fork-this-page" data-role="button" data-transition="fade">Fork this</a>-->
     </div>
   </div>
 
@@ -30,28 +28,15 @@
     <div data-role="header" style="background: #1D3557";">
       <a href="index.html" data-icon="refresh" style="background: #E63946";">Home</a>
       <h1>Alphabet</h1>
-      <!--<a id="next-card" data-icon="arrow-r" data-theme="b" data-transition="flip" style="background: #E63946";">Next</a>-->
     </div>
     <div data-role="content">
-      <!--<div data-role="collapsible-set" data-theme="c" data-content-theme="d" class="ui-collapsible-set ui-corner-all">
-        <div id="flash-card" data-role="collapsible" class="ui-collapsible ui-collapsible-inset ui-collapsible-themed-content ui-first-child ui-collapsible-collapsed" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
-          <h3 class="ui-collapsible-heading ui-collapsible-heading-collapsed">
-            <p id="question"></p>
-          </h3>
-          <p id="answer" style="display:none;"></p>
-        </div>
-      </div>-->
       <p id="question"></p>
       <div id="answer" style="display:none;"></div>
       <div id="visibleanswer" style="display:none;"></div>
-      <form name="myform" action="js/app.js" onsubmit="return validateForm()" method="POST" class="myform" id="theform">
-        <input type="text" id="sign" name="sign" placeholder="Type here what the sign means">
-        <input type="submit" value="Submit">
-      </form>
 
-      <form name="nextform" action="js/app.js" onsubmit="return nextCard()" method="POST" class="myform" id="nextform" style="display: none;">
-          <input type="submit" value="Next">
-      </form>
+      <input type="text" id="sign" name="sign" placeholder="Type here what the sign means">
+      <div id="submitbutton"><button onclick="validateForm()">Submit</button></div>
+      <div id="nextbutton" style="display: none;"><button onclick="nextCard()">Next</button></div>
       <a id="skip-card" class="myform" data-role="button" data-mini="true">Skip</a>
     </div>
   </div>

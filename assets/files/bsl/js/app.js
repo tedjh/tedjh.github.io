@@ -76,10 +76,10 @@ $(document).delegate("#main-page", "pageinit", function() {
     if (card === undefined) {
       window.location.href = 'index.html';
     } else {
+      document.getElementById("sign").value = "";
       document.getElementById("visibleanswer").style.display="none";
-      document.getElementById("theform").style.display="block";
-      document.forms["myform"]["sign"].value = "";
-      document.getElementById("nextform").style.display="none";
+      document.getElementById("nextbutton").style.display="none";
+      document.getElementById("submitbutton").style.display="block";
       document.getElementById("skip-card").style.display="block";
       $('#question').html(app.markdownToHTML(card.question));
       $('#answer').html(app.markdownToHTML(card.answer));
@@ -101,7 +101,7 @@ $(document).delegate("#main-page", "pageinit", function() {
 });
 
 function validateForm() {
-  var x = document.forms["myform"]["sign"].value;
+  var x = document.getElementById("sign").value;
   var y = document.getElementById("answer").textContent;
   if (x == "") {
       document.getElementById("visibleanswer").style.display="none";
@@ -109,19 +109,19 @@ function validateForm() {
       document.getElementById("sign").style.borderWidth = "medium";
       return false;
   } else if (x== y) {
-      document.getElementById("visibleanswer").innerHTML = "<img src='images/right.png'><p style='display:inline'>Correct!</p>"
-      document.getElementById("theform").style.display="none";
+      document.getElementById("visibleanswer").innerHTML = "<img src='images/right.PNG'><p style='display:inline'>Correct!</p>";
+      document.getElementById("nextbutton").style.display="block";
+      document.getElementById("submitbutton").style.display="none";
       document.getElementById("skip-card").style.display="none";
       document.getElementById("visibleanswer").style.display="block";
-      document.getElementById("nextform").style.display="block";
       document.getElementById("sign").style.borderColor = 'darkgrey';
       document.getElementById("sign").style.borderWidth = "thin";
   } else {
-      document.getElementById("visibleanswer").innerHTML = "<img src='images/wrong.png'><p style='display:inline'>The correct answer is: " + y + "</p>"
-      document.getElementById("theform").style.display="none";
+      document.getElementById("visibleanswer").innerHTML = "<img src='images/wrong.PNG'><p style='display:inline'>The correct answer is: " + y + "</p>"
       document.getElementById("skip-card").style.display="none";
+      document.getElementById("submitbutton").style.display="none";
+      document.getElementById("nextbutton").style.display="block";
       document.getElementById("visibleanswer").style.display="block";
-      document.getElementById("nextform").style.display="block";
       document.getElementById("sign").style.borderColor = 'darkgrey';
       document.getElementById("sign").style.borderWidth = "thin";
   }
@@ -132,10 +132,10 @@ function nextCard() {
   if (card === undefined) {
     window.location.href = 'index.html';
   } else {
+      document.getElementById("sign").value = "";
       document.getElementById("visibleanswer").style.display="none";
-      document.getElementById("theform").style.display="block";
-      document.forms["myform"]["sign"].value = "";
-      document.getElementById("nextform").style.display="none";
+      document.getElementById("nextbutton").style.display="none";
+      document.getElementById("submitbutton").style.display="block";
       document.getElementById("skip-card").style.display="block";
     $('#question').html(app.markdownToHTML(card.question));
     $('#answer').html(app.markdownToHTML(card.answer));
