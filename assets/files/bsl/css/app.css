@@ -33,3 +33,33 @@ body {
 .ui-btn-text {
   white-space: normal;
 }
+
+.ui-collapsible-set {
+  width: min-content;
+}
+
+#question {
+  margin-left:auto;
+  margin-right: auto;
+  width: 450px;
+}
+
+.myform {
+  width: 450px;
+  margin:auto;
+}
+
+#visibleanswer {
+  margin: auto;
+  width: fit-content;
+}
+
+@media only screen and (max-width: 500px) {
+ #question {
+   width: 100%;
+ }
+
+ .myform {
+   width: 100%;
+ }
+}

@@ -4,39 +4,107 @@ flashcardDeck = {
   cards: [
     {
       "question": "<img src='images/a.jpeg'",
-      "answer": "A,a.</sup>"
+      "answer": "A</sup>"
     },
     {
       "question": "<img src='images/b.jpeg'",
-      "answer": "B,b.</sup>"
+      "answer": "B</sup>"
     },
     {
       "question": "<img src='images/c.jpeg'",
-      "answer": "C,c.</sup>"
+      "answer": "C</sup>"
     },
     {
       "question": "<img src='images/d.jpeg'",
-      "answer": "D,d.</sup>"
+      "answer": "D</sup>"
     },
     {
       "question": "<img src='images/e.jpeg'",
-      "answer": "E,e.</sup>"
+      "answer": "E</sup>"
     },
     {
       "question": "<img src='images/f.jpeg'",
-      "answer": "F,f.</sup>"
+      "answer": "F</sup>"
     },
     {
       "question": "<img src='images/g.jpeg'",
-      "answer": "G,g.</sup>"
+      "answer": "G</sup>"
     },
     {
       "question": "<img src='images/h.jpeg'",
-      "answer": "H,h.</sup>"
+      "answer": "H</sup>"
     },
-    /*{
-      "question": "### What is meant by the statement \"some functions have side effects\"?",
-      "answer": "In computer science, a function or expression is said to have a side effect if, in addition to returning a value, it also modifies some state or has an observable interaction with calling functions or the outside world. For example, a function might modify a global variable or static variable, modify one of its arguments, raise an exception, write data to a display or file, read data, or call other side-effecting functions. In the presence of side effects, a program's behavior may depend on history; that is, the order of evaluation matters. Understanding and debugging a function with side effects requires knowledge about the context and its possible histories.||<sup>ref: [Wikipedia](http://en.wikipedia.org/wiki/Side_effect_%28computer_science%29)</sup>"
-    }*/
+    {
+      "question": "<img src='images/i.jpeg'",
+      "answer": "I</sup>"
+    },
+    {
+      "question": "<img src='images/j.jpeg'",
+      "answer": "J</sup>"
+    },
+    {
+      "question": "<img src='images/k.jpeg'",
+      "answer": "K</sup>"
+    },
+    {
+      "question": "<img src='images/l.jpeg'",
+      "answer": "L</sup>"
+    },
+    {
+      "question": "<img src='images/m.jpeg'",
+      "answer": "M</sup>"
+    },
+    {
+      "question": "<img src='images/n.jpeg'",
+      "answer": "N</sup>"
+    },
+    {
+      "question": "<img src='images/o.jpeg'",
+      "answer": "O</sup>"
+    },
+    {
+      "question": "<img src='images/p.jpeg'",
+      "answer": "P</sup>"
+    },
+    {
+      "question": "<img src='images/q.jpeg'",
+      "answer": "Q</sup>"
+    },
+    {
+      "question": "<img src='images/r.jpeg'",
+      "answer": "R</sup>"
+    },
+    {
+      "question": "<img src='images/s.jpeg'",
+      "answer": "S</sup>"
+    },
+    {
+      "question": "<img src='images/t.jpeg'",
+      "answer": "T</sup>"
+    },
+    {
+      "question": "<img src='images/u.jpeg'",
+      "answer": "U</sup>"
+    },
+    {
+      "question": "<img src='images/v.jpeg'",
+      "answer": "V</sup>"
+    },
+    {
+      "question": "<img src='images/w.jpeg'",
+      "answer": "W</sup>"
+    },
+    {
+      "question": "<img src='images/x.jpeg'",
+      "answer": "X</sup>"
+    },
+    {
+      "question": "<img src='images/y.jpeg'",
+      "answer": "Y</sup>"
+    },
+    {
+      "question": "<img src='images/z.jpeg'",
+      "answer": "Z</sup>"
+    }
   ]
 };
