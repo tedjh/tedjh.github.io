@@ -15,63 +15,52 @@
 </head>
 
 <body>
-  <div data-role="page" id="title-page">
+  <div data-role="page" id="title-page" style="background: #457B9D;">
     <div data-role="content">
-      <div id="logo-text" class="text-color"><span id="app-title"></span></div>
+      <div id="logo-text" class="text-color"><span id="app-title">BSL</span></div>
       <div id="logo-subtext" class="text-color">Flash Cards</div>
-      <div id="catch-phrase" class="text-color"><span id="app-catch-phrase"></span></div>
-      <div><a href="#main-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a></div>
+      <div id="catch-phrase" class="text-color"><span id="app-catch-phrase">Test how well you know British Sign Language</span></div>
+      <div><a href="#alphabet-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a></div>
+      <div><a href="#greetings-page" data-role="button" data-transition="flip" style="width: 300px;">Greetings</a></div>
     </div>
   </div>
 
-  <div data-role="page" id="main-page" style="background: #FFF";">
+  <div data-role="page" id="alphabet-page" style="background: #FFF";" >
     <div data-role="header" style="background: #1D3557";">
       <a href="index.html" data-icon="refresh" style="background: #E63946;" onclick="refresh()">Home</a>
       <h1>Alphabet</h1>
     </div>
     <div data-role="content">
-      <p id="question"></p>
-      <div id="answer" style="display:none;"></div>
-      <div id="visibleanswer" style="display:none;"></div>
-
-      <input type="text" id="sign" name="sign" placeholder="Type here what the sign means" class="myform">
-      <div id="submitbutton" class="myform"><button onclick="validateForm()">Submit</button></div>
-      <div id="nextbutton" style="display: none;" class="myform"><button onclick="nextCard()">Next</button></div>
-      <a id="skip-card" class="myform" data-role="button" data-mini="true">Skip</a>
-      <div id="score" class="myform"><p></p></div>
+      <p id="question-alphabet-page"></p>
+      <div id="answer-alphabet-page" style="display:none;"></div>
+      <div id="visibleanswer-alphabet-page" style="display:none;"></div>
+      <input type="text" id="sign-alphabet-page" name="sign" placeholder="Type here what the sign means" class="myform">
+      <div id="submitbutton-alphabet-page" class="myform"><button onclick="validateForm()">Submit</button></div>
+      <div id="nextbutton-alphabet-page" style="display: none;" class="myform"><button onclick="nextCard()">Next</button></div>
+      <a id="skip-card-alphabet-page" class="myform" data-role="button" data-mini="true" onclick="nextCard()">Skip</a>
+      <div id="score-alphabet-page" class="myform"><p></p></div>
     </div>
   </div>
 
-  <!--
-  <div data-role="page" id="fork-this-page">
-    <div data-role="header">
-      <a href="#title-page" data-icon="arrow-l" data-theme="b" data-transition="fade">Back</a>
-      <h1>JS Flash Cards</h1>
+
+
+  <div data-role="page" id="greetings-page" style="background: #FFF";">
+    <div data-role="header" style="background: #1D3557";">
+      <a href="index.html" data-icon="refresh" style="background: #E63946;" onclick="refresh()">Home</a>
+      <h1>Greetings</h1>
     </div>
     <div data-role="content">
-      <p>JSFlashCards is open sourced on GitHub. Fork the app and consider adding your own questions and issuing a pull request!</p>
-      <a href="https://github.com/cjus/jsflashcards" data-role="button">Fork this</a>
+      <p id="question-greetings-page"></p>
+      <div id="answer-greetings-page" style="display:none;"></div>
+      <div id="visibleanswer-greetings-page" style="display:none;"></div>
+      <input type="text" id="sign-greetings-page" name="sign" placeholder="Type here what the sign means" class="myform">
+      <div id="submitbutton-greetings-page" class="myform"><button onclick="validateForm()">Submit</button></div>
+      <div id="nextbutton-greetings-page" style="display: none;" class="myform"><button onclick="nextCard()">Next</button></div>
+      <a id="skip-card-greetings-page" class="myform" data-role="button" data-mini="true" onclick="nextCard()">Skip</a>
+      <div id="score-greetings-page" class="myform"><p></p></div>
     </div>
   </div>
 
-  <div data-role="page" id="resources-page">
-    <div data-role="header">
-      <a href="index.html" data-icon="refresh">Restart</a>
-      <h1>JS Flash Cards</h1>
-    </div>
-    <div data-role="content">
-      <p>Congrats you've made it through the deck! Press the restart button to shuffle the deck and make another pass.</p>
-      <p>If you feel you need to brush up on your JS, make sure to checkout the following resources:</p>
-      <ul>
-        <li><a href="https://developer.mozilla.org/en/JavaScript/Guide">JavaScript Guide on the Mozilla Developer Network</a></li>
-        <li><a href="http://net.tutsplus.com/tutorials/javascript-ajax/required-javascript-reading/">Required JavaScript
-          reading</a></li>
-        <li><a href="http://stackoverflow.com/questions/11246/best-resources-to-learn-javascript">Best resources to learn JavaScript</a></li>
-      </ul>
-      <hr>
-    </div>
-  </div>
--->
 </body>
 
 </html>

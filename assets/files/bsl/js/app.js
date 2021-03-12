@@ -1,160 +1,227 @@
 var score=0;
 var cardsLength = 0;
+var address="";
+var myapp;
 
+/*---------------------------------------------------------------------1*/
+/*
 var app = (function(cardDeck, Showdown) {
   "use strict";
 
-  var appName = 'Flash Cards',
-    version = '0.2',
-    cardCount = 0,
-    cards = cardDeck.cards,
-    cardsLength = cardDeck.cards.length,
-    
-    markdownConverter = new Showdown.converter();
-
-  function shuffle(array) {
-    // https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle
-    var counter = array.length, temp, index;
-    // While there are elements in the array
-    while (counter > 0) {
-      // Pick a random index
-      index = Math.floor(Math.random() * counter);
-
-      // Decrease counter by 1
-      counter = counter - 1;
-
-      // And swap the last element with it
-      temp = array[counter];
-      array[counter] = array[index];
-      array[index] = temp;
+    var cardCount = 0,
+      cards = cardDeck.cards,
+      cardsLength = cardDeck.cards.length,
+      markdownConverter = new Showdown.converter();
+      
+    function shuffle(array) {
+        var counter = array.length, temp, index;
+        while (counter > 0) {
+            index = Math.floor(Math.random() * counter);
+            counter = counter - 1;
+            temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
+        return array;
     }
-    return array;
-  }
 
-  return {
-    init: function() {
-      cardCount = 0;
-      cards = shuffle(cards);
-    },
-    getNextCard: function() {
-      var card;
-      if (cardCount !== cardsLength) {
-        card = cards[cardCount];
-        cardCount = cardCount + 1;
-      } else {
+    return {
+      init: function() {
         cardCount = 0;
+        cards = shuffle(cards);
+      },
+      getNextCard: function() {
+        var card;
+        if (cardCount !== cardsLength) {
+          card = cards[cardCount];
+          cardCount = cardCount + 1;
+        } else {
+          cardCount = 0;
+        }
+        return card;
+      },
+      markdownToHTML: function(markdownText) {
+        var text = markdownText.replace(new RegExp('\\|', 'g'), '\n');
+        return markdownConverter.makeHtml(text);
       }
-      return card;
-    },
-    markdownToHTML: function(markdownText) {
-      var text = markdownText.replace(new RegExp('\\|', 'g'), '\n');
-      return markdownConverter.makeHtml(text);
-    }
-  };
-})(flashcardDeck, Showdown);
+    };
+})(alphabetDeck, Showdown);
+*/
+/*---------------------------------------------------------------------1*/
 
-cardsLength = flashcardDeck.cards.length;
+/*---------------------------------------------------------------------2*/
+function myfunction(cardDeck, Showdown) {
+  "use strict";
+
+    var cardCount = 0,
+      cards = cardDeck.cards,
+      cardsLength = cardDeck.cards.length,
+      markdownConverter = new Showdown.converter();
+      
+    function shuffle(array) {
+        var counter = array.length, temp, index;
+        while (counter > 0) {
+            index = Math.floor(Math.random() * counter);
+            counter = counter - 1;
+            temp = array[counter];
+            array[counter] = array[index];
+            array[index] = temp;
+        }
+        return array;
+    }
+
+    return {
+      init: function() {
+        cardCount = 0;
+        cards = shuffle(cards);
+      },
+      getNextCard: function() {
+        var card;
+        if (cardCount !== cardsLength) {
+          card = cards[cardCount];
+          cardCount = cardCount + 1;
+        } else {
+          cardCount = 0;
+        }
+        return card;
+      },
+      markdownToHTML: function(markdownText) {
+        var text = markdownText.replace(new RegExp('\\|', 'g'), '\n');
+        return markdownConverter.makeHtml(text);
+      }
+    };
+}
+/*---------------------------------------------------------------------2*/
+
+//var alphabet_app = myfunction(alphabetDeck, Showdown);
+//var greetings_app = myfunction(greetingsDeck, Showdown);
 
 /*
- jQueryMobile event handlers
- */
-$(document).bind('pageinit', function(event, ui) {
+$(document).on("pagecreate","#title-page", function() {
   "use strict";
-  app.init();
-  $('#app-title').text(flashcardDeck.title);
-  $('#app-catch-phrase').text(flashcardDeck.catchPhrase);
-});
-
-$(document).delegate("#title-page", "pagecreate", function() {
-  "use strict";
-  $(this).css('background', '#457B9D');
   if (navigator.userAgent.match(/Android/i)) {
     window.scrollTo(0, 1);
   }
-});
+});*/
 
-$(document).delegate("#main-page", "pageinit", function() {
+$(document).on("pageshow", function() {
   "use strict";
-  document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
+  address=window.location.hash.substring(1);
+  if (address == "alphabet-page"){
+    myapp = myfunction(alphabetDeck, Showdown);
+    cardsLength = alphabetDeck.cards.length;
+    $("#alphabet-page").on("swipeleft", function() {
+      nextCard();
+    });
+  } else if (address == "greetings-page"){
+    myapp = myfunction(greetingsDeck, Showdown);
+    cardsLength = greetingsDeck.cards.length;
+    $("#greetings-page").on("swipeleft", function() {
+      nextCard();
+    });
+  } else {
+    return false;
+  }
+
+  myapp.init();
+  document.getElementById("score-"+address).innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
   function nextCard() {
     //Remember there is another nextCard() function down below!!!
     $('#flash-card').trigger('collapse');
-    var card = app.getNextCard();
+    var card = myapp.getNextCard();
     if (card === undefined) {
       window.location.href = 'index.html';
     } else {
-      document.getElementById("sign").value = "";
-      document.getElementById("visibleanswer").style.display="none";
-      document.getElementById("nextbutton").style.display="none";
-      document.getElementById("submitbutton").style.display="block";
-      document.getElementById("skip-card").style.display="block";
-      $('#question').html(app.markdownToHTML(card.question));
-      $('#answer').html(app.markdownToHTML(card.answer));
+      document.getElementById("sign-"+address).value = "";
+      document.getElementById("visibleanswer-"+address).style.display="none";
+      document.getElementById("nextbutton-"+address).style.display="none";
+      document.getElementById("submitbutton-"+address).style.display="block";
+      document.getElementById("skip-card-"+address).style.display="block";
+      $('#question-'+address).html(myapp.markdownToHTML(card.question));
+      $('#answer-'+address).html(myapp.markdownToHTML(card.answer));
     }
   }
-
-  $("#next-card").bind("click", function(event, ui) {
+  nextCard();
+/*
+  $("#next-card").on("click", function() {
     nextCard();
   });
-  $("#skip-card").bind("click", function(event, ui) {
+  $("#skip-card").on("click", function() {
     nextCard();
   });
-  $("#main-page").on("swipeleft", function(event) {
-    nextCard();
-  });
-  $(document).delegate('#main-page', 'pageshow', function() {
-    nextCard();
-  });
+  if (address == "alphabet-page"){
+      $("#alphabet-page").on("swipeleft", function() {
+        nextCard();
+      });
+      $(document).on('pageshow','#alphabet-page', function() {
+        nextCard();
+      });
+    } else if (address == "greetings-page"){
+      $("#greetings-page").on("swipeleft", function() {
+        nextCard();
+      });/*
+      $(document).on('pageshow','#greetings-page', function() {
+        nextCard();
+      });*/
 });
 
 function refresh() {
   score=0;
-  document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
-  app.init();
+  if (window.location.hash.substring(1) == "alphabet-page"){
+    document.getElementById("score-"+address).innerHTML = "<p>" + score +"/"+alphabetDeck.cards.length+"</p>";
+    myapp.init();
+  } else if (window.location.hash.substring(1) == "greetings-page"){
+    document.getElementById("score-"+address).innerHTML = "<p>" + score +"/"+greetingsDeck.cards.length+"</p>";
+    myapp.init();
+  }
 }
 
-
 function validateForm() {
-  var x = document.getElementById("sign").value;
-  var y = document.getElementById("answer").textContent;
+  var x = document.getElementById("sign-"+address).value;
+  var y = document.getElementById("answer-"+address).textContent;
+  var X = x.toLowerCase(); var Y=y.toLowerCase();
+  X = X.trim(); Y=Y.trim();
+  X=X.replace(/[^a-zA-Z ]/g, ""); Y=Y.replace(/[^a-zA-Z ]/g, "");
   if (x == "") {
-      document.getElementById("visibleanswer").style.display="none";
-      document.getElementById("sign").style.borderColor = 'red';
-      document.getElementById("sign").style.borderWidth = "medium";
+      document.getElementById("visibleanswer-"+address).style.display="none";
+      document.getElementById("sign-"+address).style.borderColor = 'red';
+      document.getElementById("sign-"+address).style.borderWidth = "medium";
       return false;
-  } else if (x.toLowerCase().trim()== y.toLowerCase().trim()) {
-      document.getElementById("visibleanswer").innerHTML = "<img src='images/right.PNG'><p style='display:inline'>Correct!</p>";
-      document.getElementById("nextbutton").style.display="block";
-      document.getElementById("submitbutton").style.display="none";
-      document.getElementById("skip-card").style.display="none";
-      document.getElementById("visibleanswer").style.display="block";
-      document.getElementById("sign").style.borderColor = 'darkgrey';
-      document.getElementById("sign").style.borderWidth = "thin";
+  } else if (X== Y) {
+      document.getElementById("visibleanswer-"+address).innerHTML = "<img src='images/right.PNG'><p style='display:inline'>Correct!</p>";
+      document.getElementById("nextbutton-"+address).style.display="block";
+      document.getElementById("submitbutton-"+address).style.display="none";
+      document.getElementById("skip-card-"+address).style.display="none";
+      document.getElementById("visibleanswer-"+address).style.display="block";
+      document.getElementById("sign-"+address).style.borderColor = 'darkgrey';
+      document.getElementById("sign-"+address).style.borderWidth = "thin";
       score = score +1;
-      document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
+      document.getElementById("score-"+address).innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
   } else {
-      document.getElementById("visibleanswer").innerHTML = "<img src='images/wrong.PNG'><p style='display:inline'>The correct answer is: " + y + "</p>"
-      document.getElementById("skip-card").style.display="none";
-      document.getElementById("submitbutton").style.display="none";
-      document.getElementById("nextbutton").style.display="block";
-      document.getElementById("visibleanswer").style.display="block";
-      document.getElementById("sign").style.borderColor = 'darkgrey';
-      document.getElementById("sign").style.borderWidth = "thin";
-      document.getElementById("score").innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
+      document.getElementById("visibleanswer-"+address).innerHTML = "<img src='images/wrong.PNG'><p style='display:inline'>The correct answer is: " + y + "</p>"
+      document.getElementById("skip-card-"+address).style.display="none";
+      document.getElementById("submitbutton-"+address).style.display="none";
+      document.getElementById("nextbutton-"+address).style.display="block";
+      document.getElementById("visibleanswer-"+address).style.display="block";
+      document.getElementById("sign-"+address).style.borderColor = 'darkgrey';
+      document.getElementById("sign-"+address).style.borderWidth = "thin";
+      document.getElementById("score-"+address).innerHTML = "<p>" + score +"/"+cardsLength+"</p>";
   }
 }
 function nextCard() {
   $('#flash-card').trigger('collapse');
-  var card = app.getNextCard();
+  var card = myapp.getNextCard();
+  
   if (card === undefined) {
+    alert("Well done! Your final score was "+score +"/"+cardsLength+".");
     window.location.href = 'index.html';
   } else {
-      document.getElementById("sign").value = "";
-      document.getElementById("visibleanswer").style.display="none";
-      document.getElementById("nextbutton").style.display="none";
-      document.getElementById("submitbutton").style.display="block";
-      document.getElementById("skip-card").style.display="block";
-    $('#question').html(app.markdownToHTML(card.question));
-    $('#answer').html(app.markdownToHTML(card.answer));
+      document.getElementById("sign-"+address).value = "";
+      document.getElementById("visibleanswer-"+address).style.display="none";
+      document.getElementById("nextbutton-"+address).style.display="none";
+      document.getElementById("submitbutton-"+address).style.display="block";
+      document.getElementById("skip-card-"+address).style.display="block";
+    $('#question-'+address).html(myapp.markdownToHTML(card.question));
+    $('#answer-'+address).html(myapp.markdownToHTML(card.answer));
   }
 }
