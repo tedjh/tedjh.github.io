@@ -22,14 +22,22 @@
       <div id="catch-phrase" class="text-color"><span id="app-catch-phrase">Test how well you know British Sign Language</span></div>
       <div>
           <a href="#alphabet-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a>
-          <img class="myImg" src="images/alphabet/alphabet.jpg" alt="alphabet" style="width:100%;max-width:200px" onclick="document.getElementById('myModal').style.display='block'">
-          <div id="myModal" class="modal">
-            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
-            <img class="modal-content" id="img01" src="images/alphabet/alphabet.jpg">
-            <div id="caption">Alphabet</div>
+          <img class="myImg" src="images/alphabet/alphabet.jpg" alt="alphabet" style="width:100%;max-width:200px" onclick="document.getElementById('myModal-alphabet').style.display='block'">
+          <div id="myModal-alphabet" class="modal">
+            <span class="close" onclick="document.getElementById('myModal-alphabet').style.display='none'">&times;</span>
+            <img class="modal-content" src="images/alphabet/alphabet.jpg">
+            <div class="caption">Alphabet</div>
           </div>          
       </div>
-      <div><a href="#greetings-page" data-role="button" data-transition="flip" style="width: 300px;">Greetings</a></div>
+      <div>
+          <a href="#greetings-page" data-role="button" data-transition="flip" style="width: 300px;">Greetings</a>
+          <img class="myImg" src="images/greetings/greetings.jpg" alt="Greetings" style="width:100%;max-width:200px" onclick="document.getElementById('myModal-greetings').style.display='block'">
+          <div id="myModal-greetings" class="modal">
+            <span class="close" onclick="document.getElementById('myModal-greetings').style.display='none'">&times;</span>
+            <img class="modal-content" src="images/greetings/greetings.jpg">
+            <div class="caption">Greetings</div>
+          </div>     
+      </div>
     </div>
   </div>
 
