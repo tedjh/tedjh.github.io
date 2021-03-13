@@ -1,3 +1,36 @@
+:root {
+  --flashcardpage-background: #fff;
+  --flashcardpage_header: #1D3557;
+  --refreshbtn: #E63946;
+  /*------------------------------------*/
+  /*Color scheme 1
+  --titlepage_textcolor: #F1FAEE;
+  --logotext_shadowcolor: #E63946; 
+  --titlepage_background: #457B9D;
+  /*------------------------------------*/
+  /*Color scheme 2*/
+  --titlepage_textcolor: #c44536;
+  --logotext_shadowcolor: #14213D; 
+  --titlepage_background: #FFF;
+  /*------------------------------------*/
+}
+
+.flashcardpage {
+  background: var(--flashcardpage-background);
+}
+
+.flashcardpage_header {
+  background: var(--flashcardpage_header);
+}
+
+.refreshbtn {
+  background: var(--refreshbtn);
+}
+
+#title-page {
+  background: var(--titlepage_background);
+}
+
 body {
   font-family: Helvetica Neue, Helvetica, Arial;
   padding: 0;
@@ -5,28 +38,30 @@ body {
 }
 
 .text-color {
-  color: #F1FAEE;
+  color: var(--titlepage_textcolor);
+  width:fit-content;
+  margin: auto;
 }
 
 #logo-text, #logo-subtext, #catch-phrase {
   font-weight: bold;
-  text-shadow: 0 1.5px 0 #e63946;
+  /*text-shadow: 0 1.5px 0 var(--logotext_shadowcolor);*/
+  text-align: left;
+  font-family: 'Raleway';
 }
 
 #logo-text {
   font-size: 6em;
-  text-align: left;
+  margin-right: 20px;
 }
 
 #logo-subtext {
   font-size: 4em;
-  text-align: left;
 }
 
 #catch-phrase {
-  padding: 1em;
-  font-size: 2em;
-  text-align: left;
+  /*padding: 1em;*/
+  font-size: 1.5em;
 }
 
 /* fix to allow button text to wrap */
@@ -61,6 +96,10 @@ img{
   max-width: 100%;
 }
 
+.flashcardbtn {
+  width: 300px;
+}
+
 @media only screen and (max-width: 500px) {
  #question-alphabet-page, #question-greetings-page {
    width: 100%;
@@ -74,6 +113,10 @@ img{
  img {
    height:auto;
  }
+
+ .flashcardbtn {
+  width: 75vw;
+ }
 }
 
 .myImg {
@@ -82,7 +125,9 @@ img{
   transition: 0.3s;
 }
 
-.myImg:hover {opacity: 0.7;}
+.myImg:hover {
+  opacity: 0.7;
+}
 
 /* The Modal (background) */
 .modal {
@@ -163,3 +208,52 @@ img{
     width: 100%;
   }
 }
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.grid-item1 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+
+.grid-item2 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+}
+
+@media only screen and (max-width: 700px){
+  .grid-container {
+    grid-template-columns: auto;
+  }
+  .grid-item1 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+  
+  .grid-item2 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+  }
+
+  #logo-text {
+    font-size: 4em;
+  }
+  
+  #logo-subtext {
+    font-size: 2.6em;
+  }
+  
+  #catch-phrase {
+    /*padding: 1em;*/
+    font-size: 1em;
+  }
+}
+@media only screen and (max-width: 440px){
+  #logo-text {
+    margin-right: 50%;
+  }

@@ -12,38 +12,52 @@
   <script src="js/showdown.js"></script>
   <script src="js/cards.js"></script>
   <script src="js/app.js"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div data-role="page" id="title-page" style="background: #457B9D;">
+  <div data-role="page" id="title-page">
     <div data-role="content">
-      <div id="logo-text" class="text-color"><span id="app-title">BSL</span></div>
-      <div id="logo-subtext" class="text-color">Flash Cards</div>
-      <div id="catch-phrase" class="text-color"><span id="app-catch-phrase">Test how well you know British Sign Language</span></div>
-      <div>
-          <a href="#alphabet-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a>
-          <img class="myImg" src="images/alphabet/alphabet.jpg" alt="alphabet" style="width:100%;max-width:200px" onclick="document.getElementById('myModal-alphabet').style.display='block'">
-          <div id="myModal-alphabet" class="modal">
-            <span class="close" onclick="document.getElementById('myModal-alphabet').style.display='none'">&times;</span>
-            <img class="modal-content" src="images/alphabet/alphabet.jpg">
-            <div class="caption">Alphabet</div>
-          </div>          
+      <div class="text-color">
+        <span id="logo-text">BSL</span>
+        <span id="logo-subtext">Flash Cards</span><br>
+        <span id="catch-phrase">Test how well you know British Sign Language</span>
       </div>
-      <div>
-          <a href="#greetings-page" data-role="button" data-transition="flip" style="width: 300px;">Greetings</a>
-          <img class="myImg" src="images/greetings/greetings.jpg" alt="Greetings" style="width:100%;max-width:200px" onclick="document.getElementById('myModal-greetings').style.display='block'">
-          <div id="myModal-greetings" class="modal">
-            <span class="close" onclick="document.getElementById('myModal-greetings').style.display='none'">&times;</span>
-            <img class="modal-content" src="images/greetings/greetings.jpg">
-            <div class="caption">Greetings</div>
-          </div>     
+      <div class="grid-container">
+          <div class="grid-item1">
+            <div style="width: fit-content; margin: auto;">
+              <a href="#alphabet-page" data-role="button" data-transition="flip" class="flashcardbtn">Alphabet</a>
+              <div style="width: fit-content; margin: auto;">
+                  <img class="myImg" src="images/alphabet/alphabet.jpg" alt="alphabet" style="width:100%;max-width:200px;margin:auto;" onclick="document.getElementById('myModal-alphabet').style.display='block'">
+              </div>
+              <div id="myModal-alphabet" class="modal">
+                <span class="close" onclick="document.getElementById('myModal-alphabet').style.display='none'">&times;</span>
+                <img class="modal-content" src="images/alphabet/alphabet.jpg">
+                <div class="caption">Alphabet</div>
+              </div>          
+          </div>
+          </div>
+          <div class="grid-item2">
+            <div style="width: fit-content; margin: auto;">
+              <a href="#greetings-page" data-role="button" data-transition="flip" class="flashcardbtn">Greetings</a>
+              <div style="width: fit-content; margin: auto;">
+                  <img class="myImg" src="images/greetings/greetings.jpg" alt="Greetings" style="width:100%;max-width:200px" onclick="document.getElementById('myModal-greetings').style.display='block'">
+              </div>
+              <div id="myModal-greetings" class="modal">
+                <span class="close" onclick="document.getElementById('myModal-greetings').style.display='none'">&times;</span>
+                <img class="modal-content" src="images/greetings/greetings.jpg">
+                <div class="caption">Greetings</div>
+              </div>
+        </div>    
       </div>
     </div>
   </div>
+  </div>
 
-  <div data-role="page" id="alphabet-page" style="background: #FFF";" >
-    <div data-role="header" style="background: #1D3557";">
-      <a href="index.html" data-icon="refresh" style="background: #E63946;" onclick="refresh()">Home</a>
+  <div data-role="page" id="alphabet-page" class="flashcardpage">
+    <div data-role="header" class="flashcardpage_header">
+      <a href="index.html" data-icon="refresh" class="refreshbtn" onclick="refresh()">Home</a>
       <h1>Alphabet</h1>
     </div>
     <div data-role="content">
@@ -60,9 +74,9 @@
 
 
 
-  <div data-role="page" id="greetings-page" style="background: #FFF";">
-    <div data-role="header" style="background: #1D3557";">
-      <a href="index.html" data-icon="refresh" style="background: #E63946;" onclick="refresh()">Home</a>
+  <div data-role="page" id="greetings-page" class="flashcardpage">
+    <div data-role="header" class="flashcardpage_header">
+      <a href="index.html" data-icon="refresh" class="refreshbtn" onclick="refresh()">Home</a>
       <h1>Greetings</h1>
     </div>
     <div data-role="content">
