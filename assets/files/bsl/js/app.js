@@ -107,6 +107,7 @@ $(document).on("pagecreate","#title-page", function() {
 $(document).on("pageshow", function() {
   "use strict";
   address=window.location.hash.substring(1);
+  console.log(address);
   if (address == "alphabet-page"){
     myapp = myfunction(alphabetDeck, Showdown);
     cardsLength = alphabetDeck.cards.length;
@@ -142,6 +143,7 @@ $(document).on("pageshow", function() {
     }
   }
   nextCard();
+});
 /*
   $("#next-card").on("click", function() {
     nextCard();
@@ -163,7 +165,7 @@ $(document).on("pageshow", function() {
       $(document).on('pageshow','#greetings-page', function() {
         nextCard();
       });*/
-});
+
 
 function refresh() {
   score=0;

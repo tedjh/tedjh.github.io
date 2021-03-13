@@ -20,7 +20,15 @@
       <div id="logo-text" class="text-color"><span id="app-title">BSL</span></div>
       <div id="logo-subtext" class="text-color">Flash Cards</div>
       <div id="catch-phrase" class="text-color"><span id="app-catch-phrase">Test how well you know British Sign Language</span></div>
-      <div><a href="#alphabet-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a></div>
+      <div>
+          <a href="#alphabet-page" data-role="button" data-transition="flip" style="width: 300px;">Alphabet</a>
+          <img class="myImg" src="images/alphabet/alphabet.jpg" alt="alphabet" style="width:100%;max-width:200px" onclick="document.getElementById('myModal').style.display='block'">
+          <div id="myModal" class="modal">
+            <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
+            <img class="modal-content" id="img01" src="images/alphabet/alphabet.jpg">
+            <div id="caption">Alphabet</div>
+          </div>          
+      </div>
       <div><a href="#greetings-page" data-role="button" data-transition="flip" style="width: 300px;">Greetings</a></div>
     </div>
   </div>
