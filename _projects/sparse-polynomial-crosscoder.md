@@ -1,13 +1,12 @@
 ---
 layout: project
-title: "Sparse Polynomial Crosscoder"
+title: "Sparse Polynomial Crosscoders"
 tagline: "A nonlinear, multi-layer feature decomposition for transformer interpretability"
-date: 2026-03-15
+date: 2026-02-15
 featured: true
 thumbnail: /assets/images/projects/spc-thumb.svg
 links:
-  - {label: "Paper", url: "#"}
-  - {label: "Code",  url: "#"}
+  - {label: "Code",  url: "https://github.com/tedjh/polynomial_crosscode"}
 ---
 
 *[Placeholder write-up demonstrating the project layout — replace with the real content.]*

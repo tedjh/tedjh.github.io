@@ -5,5 +5,5 @@ venue: "Preprint"
 year: 2025
 thumbnail: /assets/images/pubs/example-three-thumb.svg
 links:
-  - {label: "Website", url: "https://arxiv.org/abs/2501.06673"}
+  - {label: "Paper", url: "https://arxiv.org/abs/2501.06673"}
 ---
