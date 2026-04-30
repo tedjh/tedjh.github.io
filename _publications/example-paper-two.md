@@ -1,11 +1,9 @@
 ---
-title: "Example Paper Two — Another Placeholder"
-authors: "Coauthor A, **Your Name**, Coauthor B"
-venue: "ICML 2025"
-year: 2025
+title: "Drinfeld twists of Koszul algebras"
+authors: "**Edward Jones-Healey**"
+venue: "Communications in Algebra"
+year: 2024
 thumbnail: /assets/images/pubs/example-two-thumb.svg
 links:
-  - {label: "PDF",     url: "#"}
-  - {label: "Code",    url: "#"}
-  - {label: "Website", url: "#"}
+  - {label: "Website", url: "https://www.tandfonline.com/doi/full/10.1080/00927872.2024.2318658"}
 ---

@@ -7,7 +7,7 @@ description: "Personal site of Ted Jones-Healey."
 #   User-page repo (recommended):   url: "https://username.github.io"
 #   Project-page repo:              url: "https://username.github.io"
 #                                   baseurl: "/repo-name"
-url: ""
+url: "https://tedjh.github.io/"
 baseurl: ""
 
 # Used for the email link in the landing-page hero.

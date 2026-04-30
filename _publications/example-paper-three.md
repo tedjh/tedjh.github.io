@@ -1,9 +1,9 @@
 ---
-title: "An Earlier Example Paper — Placeholder Title"
-authors: "**Your Name**, Coauthor One"
-venue: "ICLR 2024"
-year: 2024
+title: "Twists of representations of complex reflection groups and rational Cherednik algebras"
+authors: "Y. Bazlov, **Edward Jones-Healey**"
+venue: "Preprint"
+year: 2025
 thumbnail: /assets/images/pubs/example-three-thumb.svg
 links:
-  - {label: "PDF", url: "#"}
+  - {label: "Website", url: "https://arxiv.org/abs/2501.06673"}
 ---

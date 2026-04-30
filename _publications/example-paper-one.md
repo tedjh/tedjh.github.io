@@ -1,13 +1,9 @@
 ---
-title: "Example Paper One — A Placeholder Title For Replacement"
-authors: "**Your Name**, Coauthor One, Coauthor Two"
-venue: "NeurIPS 2025"
-year: 2025
+title: "Twists of rational Cherednik algebras"
+authors: "**Edward Jones-Healey**, Y. Bazlov, A. Berenstein, A. McGaw"
+venue: "The Quarterly Journal of Mathematics"
+year: 2022
 thumbnail: /assets/images/pubs/example-one-thumb.svg
 links:
-  - {label: "PDF",     url: "#"}
-  - {label: "Code",    url: "#"}
-  - {label: "Website", url: "#"}
-  - {label: "Video",   url: "#"}
-  - {label: "Blog",    url: "#"}
+  - {label: "Website", url: "https://academic.oup.com/qjmath/article/74/2/511/6825591?guestAccessKey="}
 ---
