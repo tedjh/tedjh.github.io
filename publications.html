@@ -1,0 +1,25 @@
+---
+layout: default
+title: Publications
+permalink: /publications/
+---
+
+<section class="page">
+  <div class="container">
+    <h1 class="page-title">Publications</h1>
+
+    {%- assign sorted = site.publications | sort: 'year' | reverse -%}
+    {%- assign years = sorted | map: 'year' | uniq -%}
+
+    {%- for year in years %}
+      <h2 class="pub-year">{{ year }}</h2>
+      <div class="pub-list">
+        {%- for pub in sorted -%}
+          {%- if pub.year == year %}
+            {% include publication-entry.html publication=pub %}
+          {%- endif -%}
+        {%- endfor %}
+      </div>
+    {%- endfor %}
+  </div>
+</section>

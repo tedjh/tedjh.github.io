@@ -1,0 +1,62 @@
+# Site identity — appears in <title>, header, hero, etc.
+title: "Ted Jones-Healey"
+tagline: "Mathematician, consultant and machine learning researcher"
+description: "Personal site of Ted Jones-Healey."
+
+# Public URL of the deployed site. Set after first deploy.
+#   User-page repo (recommended):   url: "https://username.github.io"
+#   Project-page repo:              url: "https://username.github.io"
+#                                   baseurl: "/repo-name"
+url: ""
+baseurl: ""
+
+# Used for the email link in the landing-page hero.
+author:
+  name: "Ted Jones-Healey"
+  email: "ted.jh94@gmail.com"
+
+# Optional URLs for the inline links row on the landing page. If left
+# blank, the hero falls back to the bare domain (scholar.google.com etc.).
+social:
+  scholar: "https://scholar.google.com/citations?user=TusUhfoAAAAJ&hl=en"
+  github: "https://github.com/tedjh/"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Disable kramdown's server-side math handling so KaTeX can render
+# client-side. Block `$$..$$` becomes <div class="math">; inline `$$..$$`
+# becomes <span class="math">; bare `$..$` and `\(..\)` / `\[..\]` pass
+# through untouched and are picked up by KaTeX auto-render.
+kramdown:
+  math_engine: null
+
+sass:
+  style: compressed
+
+# Collections
+#   projects: each .md file gets its own page at /projects/<slug>/
+#   publications: list-only, no individual pages
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+  publications:
+    output: false
+
+defaults:
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+
+# Files excluded from the build output
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - site-build-spec.md
+  - vendor
+  - .gitignore

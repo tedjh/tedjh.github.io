@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  {%- if page.layout == 'project' %}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  {%- endif %}
+</head>
+<body>
+  {% include header.html %}
+
+  <main>
+    {{ content }}
+  </main>
+
+  {% include footer.html %}
+
+  {%- if page.layout == 'project' %}
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var root = document.querySelector('.project-body');
+      if (!root) return;
+
+      // Inline `$..$` and the `\(..\)` / `\[..\]` alternates pass through
+      // kramdown untouched, so we render them via auto-render.
+      renderMathInElement(root, {
+        delimiters: [
+          { left: '$',   right: '$',   display: false },
+          { left: '\\(', right: '\\)', display: false },
+          { left: '\\[', right: '\\]', display: true  }
+        ],
+        throwOnError: false,
+        trust: false,
+        strict: 'ignore'
+      });
+
+      // Block `$$..$$` is wrapped by kramdown as <div class="math"> and
+      // inline `$$..$$` as <span class="math">. Render those directly.
+      root.querySelectorAll('.math').forEach(function (el) {
+        try {
+          katex.render(el.textContent, el, {
+            throwOnError: false,
+            displayMode: el.tagName === 'DIV'
+          });
+        } catch (e) {
+          console.error('KaTeX render error:', e);
+        }
+      });
+    });
+  </script>
+  {%- endif %}
+</body>
+</html>

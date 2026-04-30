@@ -1,0 +1,18 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<section class="page">
+  <div class="container">
+    <h1 class="page-title">Projects</h1>
+
+    <div class="project-grid">
+      {%- assign sorted = site.projects | sort: 'date' | reverse -%}
+      {%- for project in sorted -%}
+        {% include project-card.html project=project %}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

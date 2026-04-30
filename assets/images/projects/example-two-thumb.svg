@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 270" role="img" aria-label="Example project two placeholder thumbnail">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3d6755"/>
+      <stop offset="100%" stop-color="#1f3a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="270" fill="url(#g)"/>
+  <g opacity="0.45" stroke="#e0eae3" fill="none" stroke-width="1.4">
+    <line x1="160" y1="100" x2="320" y2="100"/>
+    <line x1="160" y1="135" x2="320" y2="135"/>
+    <line x1="160" y1="170" x2="320" y2="170"/>
+    <circle cx="180" cy="100" r="3.5" fill="#e0eae3"/>
+    <circle cx="240" cy="135" r="3.5" fill="#e0eae3"/>
+    <circle cx="300" cy="170" r="3.5" fill="#e0eae3"/>
+  </g>
+</svg>

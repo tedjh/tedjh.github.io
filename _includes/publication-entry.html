@@ -1,0 +1,26 @@
+{%- assign pub = include.publication -%}
+{%- assign primary_link = pub.links | first -%}
+<article class="pub-entry">
+  <div class="pub-thumb">
+    {%- if pub.thumbnail -%}
+      <img src="{{ pub.thumbnail | relative_url }}" alt="">
+    {%- endif -%}
+  </div>
+  <div class="pub-meta">
+    {%- if primary_link -%}
+      <a class="pub-title" href="{{ primary_link.url }}">{{ pub.title }}</a>
+    {%- else -%}
+      <span class="pub-title">{{ pub.title }}</span>
+    {%- endif -%}
+    <div class="pub-authors">{{ pub.authors | markdownify }}</div>
+    <p class="pub-venue"><em>{{ pub.venue }}</em></p>
+    {%- if pub.links and pub.links.size > 0 -%}
+      <p class="pub-links">
+        {%- for link in pub.links -%}
+          <a href="{{ link.url }}">{{ link.label }}</a>
+          {%- unless forloop.last %} <span class="sep">·</span> {% endunless -%}
+        {%- endfor -%}
+      </p>
+    {%- endif -%}
+  </div>
+</article>

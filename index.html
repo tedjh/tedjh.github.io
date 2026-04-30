@@ -1,0 +1,55 @@
+---
+layout: default
+title: Your Name
+---
+
+<section class="hero">
+  <div class="container">
+    <img src="{{ '/assets/images/small_portrait.png' | relative_url }}" alt="Profile photo" class="hero-photo">
+
+    <h1 class="hero-name">{{ site.title }}</h1>
+    <p class="hero-tagline">{{ site.tagline }}</p>
+
+    <div class="hero-bio">
+      <p>I'm a Senior Mathematical Consultant at <a href="https://www.smithinst.co.uk/" target="_blank"
+          rel="noopener noreferrer">Smith Institute</a> performing machine learning research for clients across
+        industry and government. I'm also an independent researcher working on embodied robotics and mechanistic
+        interpretability of large language models.
+
+        <!--My current focus is on tools that decompose
+        transformer computations into structured, human-readable circuits —
+        the most recent of which is a sparse polynomial crosscoder for
+        cross-layer feature attribution.</p>-->
+
+      <p>Before this I completed a PhD in Pure Mathematics at the University of Manchester, and a Masters in Applied
+        Mathematics and Theoretical Physics from the University of Cambridge.
+        <!--I'm always glad to hear from people working
+        on interpretability, scalable oversight, or anything that brings rigour
+        to the question of what neural networks are actually computing.</p>-->
+    </div>
+
+    <p class="hero-links">
+      <a href="{{ '/assets/pdf/cv.pdf' | relative_url }}">CV</a>
+      <span class="sep">·</span>
+      <a href="{{ site.social.scholar | default: 'https://scholar.google.com/' }}">Google Scholar</a>
+      <span class="sep">·</span>
+      <a href="{{ site.social.github | default: 'https://github.com/' }}">GitHub</a>
+      <span class="sep">·</span>
+      <a href="mailto:{{ site.author.email }}">Email</a>
+    </p>
+  </div>
+</section>
+
+{%- assign featured = site.projects | where: 'featured', true | sort: 'date' | reverse -%}
+{%- if featured.size > 0 %}
+<section class="featured-projects">
+  <div class="container">
+    <h2 class="section-heading">Featured Projects</h2>
+    <div class="project-grid">
+      {%- for project in featured %}
+      {% include project-card.html project=project %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
