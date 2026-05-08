@@ -1,7 +1,7 @@
 ---
 layout: project
 title: "Self-Driving Car: Part 1"
-tagline: "The first iteration of my self-driving robotic car project"
+tagline: "Arduino, ultrasonic sensor, motors."
 date: 2026-04-30
 featured: true
 thumbnail: /assets/images/projects/car_1.jpg
@@ -13,7 +13,7 @@ thumbnail: /assets/images/projects/car_1.jpg
 </figure>
 
 ## Design
-This was my first real robotics project, and there were a lot of teething problems getting this working. I will elaborate on this shortly, but first, the design of the car is as follows: we have 4 wheels, each with its own motor. These are connected to two L298N motor drivers, which are then connected to the pins of an Arduini Uno R4. The Arduino also supplies power to, and takes readings from, an ultrasonic sensor, for the navigation.
+This is the start of my first real robotics project, and there were a lot of teething problems getting this working. I will elaborate on this shortly, but first, the design of the car is as follows: we have 4 wheels, each with its own motor. These are connected to two L298N motor drivers, which are then connected to the pins of an Arduini Uno R4. The Arduino also supplies power to, and takes readings from, an ultrasonic sensor, for the navigation.
 
 <figure>
     <img src="/assets/images/projects/car_diagram.png" art="Car from the side">
